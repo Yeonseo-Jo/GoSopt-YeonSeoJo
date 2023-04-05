@@ -190,11 +190,12 @@ main {
 }
 
 .cards__img {
-  width: 100%;
+  width: 90%;
   height: 9rem;
 }
 
 .cards__button {
+  padding-right: 0.5rem;
   border: none;
   align-self: flex-end;
   background-color: white;
