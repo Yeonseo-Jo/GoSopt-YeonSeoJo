@@ -135,6 +135,7 @@ main {
   padding: 0 1.5rem;
 }
 
+/* 반응형 구현 */
 @media screen and (max-width: 1500px) {
   .cards {
     grid-template-columns: repeat(5, 1fr);
