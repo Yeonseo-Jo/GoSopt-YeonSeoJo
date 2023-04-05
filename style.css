@@ -40,6 +40,50 @@ h3 {
   background-color: black;
 }
 
+.header__menu {
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: 13rem;
+  background-color: #dddddd;
+  color: black;
+  z-index: 10;
+}
+
+.header__button:hover + .header__menu,
+.header__menu:hover {
+  display: block;
+}
+
+.header__list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 2rem 1rem;
+}
+
+.header__sublist-title,
+.header__sublist {
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
+  font-weight: 700;
+  text-decoration: none;
+  color: black;
+}
+
+.header__sublist {
+  text-decoration: underline 0.1rem;
+  text-underline-position: under;
+}
+
+.header__sublist:hover {
+  text-decoration: underline dotted 0.1rem;
+  text-underline-position: under;
+  color: grey;
+}
+
 main {
   display: flex;
   padding: 6rem 1.5rem 0 1.5rem;
@@ -77,11 +121,49 @@ main {
   border-radius: 1rem;
 }
 
+.nav__category:hover {
+  background-color: #dddddd;
+  color: grey;
+  cursor: pointer;
+}
+
 /* card section */
 .cards {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
+  width: 100%;
   padding: 0 1.5rem;
+}
+
+@media screen and (max-width: 1500px) {
+  .cards {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  .cards {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .cards {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media screen and (max-width: 780px) {
+  .cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 670px) {
+  .cards {
+    grid-template-columns: repeat(1, 1fr);
+    place-items: center;
+  }
 }
 
 .cards__card {
@@ -116,4 +198,9 @@ main {
   align-self: flex-end;
   background-color: white;
   color: red;
+}
+
+.cards__button:hover {
+  color: #dddddd;
+  cursor: pointer;
 }
