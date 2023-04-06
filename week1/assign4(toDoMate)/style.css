@@ -6,6 +6,7 @@
 
 html,
 body {
+  min-width: 420px;
   max-width: 480px;
   height: 100vh;
   margin: 0 auto;
@@ -17,9 +18,9 @@ body * {
   color: white;
 }
 
-h3 {
+/* h3 {
   font-size: 1.2rem;
-}
+} */
 
 /* header */
 header {
@@ -67,6 +68,10 @@ main {
   margin-bottom: 0.5rem;
 }
 
+.calender__text {
+  font-size: 1.2rem;
+}
+
 .calender__icon {
   position: relative;
 }
@@ -85,6 +90,21 @@ main {
   color: white;
 }
 
+.calender__num p {
+  font-size: 1rem;
+  text-align: center;
+  padding: 0.35rem 0.6rem;
+  border-radius: 50%;
+  background-color: transparent;
+}
+
+.calender__num p:hover {
+  background-color: rgb(28, 28, 196);
+  opacity: 80%;
+  color: white;
+  cursor: pointer;
+}
+
 .highlight * {
   color: white;
 }
@@ -93,12 +113,19 @@ main {
   color: grey;
 }
 
+.highlight > .calender__num {
+  background-color: rgb(28, 28, 196);
+  opacity: 80%;
+  border-radius: 50%;
+  color: white;
+}
+
 /* todo-list section */
 .todolist {
   display: flex;
   flex-flow: column wrap;
   height: 80%;
-  padding: 1.5rem 2.5rem 0 2.5rem;
+  padding: 1.5rem 2.5rem 1rem 2.5rem;
 }
 
 .todolist__category {
@@ -114,7 +141,8 @@ main {
   padding: 0.5rem 0.7rem;
   border-radius: 1rem;
   color: white;
-  background-color: grey;
+  background-color: darkgrey;
+  box-shadow: 0.1rem 0.2rem 0.3rem 0.07rem grey;
 }
 
 .todolist__title * {
@@ -185,6 +213,7 @@ footer {
   margin: 0 1.5rem 2rem 0;
   border: 0.12rem solid grey;
   border-radius: 0.5rem;
+  box-shadow: 0.1rem 0.1rem 0.3rem grey;
 }
 
 .footer__button * {
@@ -193,6 +222,7 @@ footer {
 
 .footer__button:hover {
   background-color: grey;
+  cursor: pointer;
 }
 
 .footer__button > i {
