@@ -181,11 +181,23 @@ main {
   margin-bottom: 0.7rem;
 }
 
-.cards__tag {
-  font-size: 0.7rem;
-  width: 9rem;
-  white-space: nowrap;
+.cards__tagwrapper {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
   overflow: hidden;
+  word-break: keep-all;
+  width: 9rem;
+  height: 0.7rem;
+  margin: 0.5rem 0;
+}
+
+.cards__tag {
+  display: inline-block;
+  font-size: 0.7rem;
+  margin: 0 0.2rem;
+  width: fit-content;
   text-align: center;
 }
 
