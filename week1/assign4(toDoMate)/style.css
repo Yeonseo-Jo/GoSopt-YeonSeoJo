@@ -1,0 +1,237 @@
+/* global setting */
+* {
+  box-sizing: border-box;
+  border: none;
+}
+
+html,
+body {
+  min-width: 420px;
+  max-width: 480px;
+  height: 100vh;
+  margin: 0 auto;
+  font-family: "Do Hyeon", sans-serif;
+}
+
+body * {
+  background-color: black;
+  color: white;
+}
+
+/* h3 {
+  font-size: 1.2rem;
+} */
+
+/* header */
+header {
+  height: 10%;
+  display: flex;
+  justify-content: center;
+}
+
+.header__title {
+  font-size: 2rem;
+  margin: 2rem 0 1.5rem 0;
+  font-family: "Black Han Sans", sans-serif;
+}
+
+main {
+  height: 80%;
+}
+
+/* calender section */
+.calender {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  grid-template-columns: repeat(7, 1fr);
+  width: 90%;
+  height: 20%;
+  margin: 0 auto;
+  border-radius: 0.5rem;
+}
+
+.calender__day {
+  display: grid;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  grid-template-rows: repeat(3, 1fr);
+}
+
+.calender__day * {
+  color: grey;
+}
+
+.calender__text,
+.calender__icon {
+  margin-bottom: 0.5rem;
+}
+
+.calender__text {
+  font-size: 1.2rem;
+}
+
+.calender__icon {
+  position: relative;
+}
+
+.calender__icon > i {
+  font-size: 1.6rem;
+}
+
+.calender__count {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: transparent;
+  font-size: 0.7rem;
+  color: white;
+}
+
+.calender__num p {
+  font-size: 1rem;
+  text-align: center;
+  padding: 0.35rem 0.6rem;
+  border-radius: 50%;
+  background-color: transparent;
+}
+
+.calender__num p:hover {
+  background-color: rgb(28, 28, 196);
+  opacity: 80%;
+  color: white;
+  cursor: pointer;
+}
+
+.highlight * {
+  color: white;
+}
+
+.highlight .calender__count {
+  color: grey;
+}
+
+.highlight > .calender__num {
+  background-color: rgb(28, 28, 196);
+  opacity: 80%;
+  border-radius: 50%;
+  color: white;
+}
+
+/* todo-list section */
+.todolist {
+  display: flex;
+  flex-flow: column wrap;
+  height: 80%;
+  padding: 1.5rem 2.5rem 1rem 2.5rem;
+}
+
+.todolist__category {
+  margin-bottom: 1.5rem;
+  width: fit-content;
+}
+
+.todolist__title {
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  margin-bottom: 0.5rem;
+  padding: 0.5rem 0.7rem;
+  border-radius: 1rem;
+  color: white;
+  background-color: darkgrey;
+  box-shadow: 0.1rem 0.2rem 0.3rem 0.07rem grey;
+}
+
+.todolist__title * {
+  font-size: 1.3rem;
+  background-color: transparent;
+}
+
+.todolist__title button {
+  cursor: pointer;
+  margin-left: 0.5rem;
+}
+
+.todolist__title button:hover {
+  background-color: white;
+  color: grey;
+  border-radius: 1rem;
+}
+
+.todolist__content {
+  display: flex;
+  padding: 0.5rem;
+}
+
+.todolist__content > i {
+  font-size: 1.1rem;
+}
+
+.todolist__detail {
+  font-size: 1.2rem;
+  margin-left: 0.5rem;
+}
+
+/* 카테고리별 색상 다르게 */
+.yellow {
+  background-color: #f9ae54;
+}
+
+.pink {
+  background-color: #fa9584;
+}
+
+.green {
+  background-color: #688052;
+}
+
+.blue {
+  background-color: #65b0bb;
+}
+
+/* 완료한 할 일은 회색으로 */
+.checked > * {
+  color: grey;
+}
+
+/* footer */
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 10%;
+}
+
+.footer__button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.7rem 1.5rem;
+  margin: 0 1.5rem 2rem 0;
+  border: 0.12rem solid grey;
+  border-radius: 0.5rem;
+  box-shadow: 0.1rem 0.1rem 0.3rem grey;
+}
+
+.footer__button * {
+  background-color: transparent;
+}
+
+.footer__button:hover {
+  background-color: grey;
+  cursor: pointer;
+}
+
+.footer__button > i {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.footer__text {
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+}

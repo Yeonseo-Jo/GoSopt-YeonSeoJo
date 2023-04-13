@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ys's todo mate</title>
+    <!--reset.css cdn-->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css"
+    />
+    <!--fontawesome cdn-->
+    <script
+      src="https://kit.fontawesome.com/fdaeef652b.js"
+      crossorigin="anonymous"
+    ></script>
+    <!--Google font cdn-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Do+Hyeon&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1 class="header__title">ys's todo mate</h1>
+    </header>
+    <main>
+      <!--calender section-->
+      <section class="calender">
+        <article class="calender__day">
+          <h3 class="calender__text">월</h3>
+          <div class="calender__icon">
+            <i class="fa-solid fa-heart"></i>
+            <p class="calender__count">4</p>
+          </div>
+          <buton class="calender__num"><p>3</p></buton>
+        </article>
+
+        <article class="calender__day">
+          <h3 class="calender__text">화</h3>
+          <div class="calender__icon">
+            <i class="fa-solid fa-heart"></i>
+            <p class="calender__count">3</p>
+          </div>
+          <buton class="calender__num"><p>4</p></buton>
+        </article>
+
+        <article class="calender__day">
+          <h3 class="calender__text">수</h3>
+          <div class="calender__icon">
+            <i class="fa-solid fa-heart"></i>
+            <p class="calender__count">5</p>
+          </div>
+          <buton class="calender__num"><p>5</p></buton>
+        </article>
+
+        <article class="calender__day highlight">
+          <h3 class="calender__text">목</h3>
+          <div class="calender__icon">
+            <i class="fa-solid fa-heart"></i>
+            <p class="calender__count">7</p>
+          </div>
+          <buton class="calender__num"><p>6</p></buton>
+        </article>
+
+        <article class="calender__day">
+          <h3 class="calender__text">금</h3>
+          <div class="calender__icon">
+            <i class="fa-solid fa-heart"></i>
+            <p class="calender__count">3</p>
+          </div>
+          <buton class="calender__num"><p>7</p></buton>
+        </article>
+
+        <article class="calender__day">
+          <h3 class="calender__text">토</h3>
+          <div class="calender__icon">
+            <i class="fa-solid fa-heart"></i>
+            <p class="calender__count">3</p>
+          </div>
+          <buton class="calender__num"><p>8</p></buton>
+        </article>
+
+        <article class="calender__day">
+          <h3 class="calender__text">일</h3>
+          <div class="calender__icon">
+            <i class="fa-solid fa-heart"></i>
+            <p class="calender__count">2</p>
+          </div>
+          <buton class="calender__num"><p>9</p></buton>
+        </article>
+      </section>
+
+      <!-- todo section -->
+      <section class="todolist">
+        <article class="todolist__category">
+          <div class="todolist__title yellow">
+            <h2>📆 일정</h2>
+            <button>+</button>
+          </div>
+          <ul>
+            <li class="todolist__content">
+              <i class="fa-solid fa-heart"></i>
+              <p class="todolist__detail">23시 회의</p>
+            </li>
+          </ul>
+        </article>
+
+        <article class="todolist__category">
+          <div class="todolist__title pink">
+            <h2>📚 공부 & 할 일</h2>
+            <button>+</button>
+          </div>
+          <ul>
+            <li class="todolist__content checked">
+              <i class="fa-solid fa-heart"></i>
+              <p class="todolist__detail">정처기 1단원</p>
+            </li>
+            <li class="todolist__content">
+              <i class="fa-solid fa-heart"></i>
+              <p class="todolist__detail">정처기 2단원</p>
+            </li>
+            <li class="todolist__content">
+              <i class="fa-solid fa-heart"></i>
+              <p class="todolist__detail">정처기 3단원</p>
+            </li>
+            <li class="todolist__content checked">
+              <i class="fa-solid fa-heart"></i>
+              <p class="todolist__detail">솝트 과제</p>
+            </li>
+          </ul>
+        </article>
+
+        <article class="todolist__category">
+          <div class="todolist__title green">
+            <h2>💵 돈 벌자</h2>
+            <button>+</button>
+          </div>
+          <ul>
+            <li class="todolist__content checked">
+              <i class="fa-solid fa-heart"></i>
+              <p class="todolist__detail">10-17 근장</p>
+            </li>
+          </ul>
+        </article>
+
+        <article class="todolist__category">
+          <div class="todolist__title blue">
+            <h2>💪🏻 약속</h2>
+            <button>+</button>
+          </div>
+          <ul>
+            <li class="todolist__content">
+              <i class="fa-solid fa-heart"></i>
+              <p class="todolist__detail">맛도리 먹으러 가기</p>
+            </li>
+          </ul>
+        </article>
+      </section>
+    </main>
+    <footer>
+      <button class="footer__button">
+        <i class="fa-solid fa-house"></i>
+        <a class="footer__text" href="#">달력</a>
+      </button>
+      <button class="footer__button">
+        <i class="fa-solid fa-circle-user"></i>
+        <a class="footer__text" href="#">MY</a>
+      </button>
+    </footer>
+  </body>
+</html>
