@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>YEONSINSA</title>
+    <!--reset.css cdn-->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css"
+    />
+    <!--fontawesome cdn-->
+    <script
+      src="https://kit.fontawesome.com/fdaeef652b.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="header">
+      <h1 class="header__title">YEONSINSA</h1>
+      <nav>
+        <button class="header__button"><i class="fa-solid fa-bars"></i></button>
+        <section class="header__menu">
+          <article class="header__list">
+            <h2 class="header__sublist-title">메뉴</h2>
+            <br />
+            <a class="header__sublist" href="#">새 위시 추가</a>
+            <a class="header__sublist" href="#">찜 목록</a>
+          </article>
+        </section>
+      </nav>
+    </header>
+
+    <main>
+      <nav class="nav">
+        <h2 class="nav__title">CATEGORY</h2>
+        <section class="nav_content">
+          <article class="nav__category">
+            <input type="checkbox" id="ALL" />
+            <label for="ALL">ALL</label>
+          </article>
+          <article class="nav__category">
+            <input type="checkbox" id="CLOTHES" />
+            <label for="CLOTHES">CLOTHES</label>
+          </article>
+          <article class="nav__category">
+            <input type="checkbox" id="SHOES" />
+            <label for="SHOES">SHOES</label>
+          </article>
+          <article class="nav__category">
+            <input type="checkbox" id="ETC" />
+            <label for="ETC">ETC</label>
+          </article>
+        </section>
+      </nav>
+
+      <section class="cards">
+        <!--card1-->
+        <article class="cards__cardContent">
+          <header>
+            <h2>WishList 1</h2>
+          </header>
+          <ul class="cards__tagwrapper">
+            <li class="cards__tag">디젤피카부</li>
+            <!-- 넘치는 태그는 안보이게 처리-->
+            <li class="cards__tag">태그길게길게넘치나안넘치나테스트</li>
+          </ul>
+          <img class="cards__img" src="./img/disel.jpg" alt="디젤-반팔티" />
+          <button class="cards__button">
+            <i class="fa-solid fa-heart"></i>
+          </button>
+        </article>
+
+        <!--card2-->
+        <article class="cards__cardContent">
+          <header>
+            <h2>WishList 2</h2>
+          </header>
+          <ul class="cards__tagwrapper">
+            <li class="cards__tag">가젤볼드핑크글로우</li>
+            <li class="cards__tag">사고싶은데못구하는거</li>
+          </ul>
+          <img class="cards__img" src="./img/addidas.jpg" alt="아디다스-신발" />
+          <button class="cards__button">
+            <i class="fa-solid fa-heart"></i>
+          </button>
+        </article>
+
+        <!--card3-->
+        <article class="cards__cardContent">
+          <header>
+            <h2>WishList 3</h2>
+          </header>
+          <ul class="cards__tagwrapper">
+            <li class="cards__tag">마뗑킴가방</li>
+            <li class="cards__tag">실내화주머니</li>
+          </ul>
+          <img class="cards__img" src="./img/matinkim.jpg" alt="마뗑킴-가방" />
+          <button class="cards__button">
+            <i class="fa-solid fa-heart"></i>
+          </button>
+        </article>
+
+        <!--card4-->
+        <article class="cards__cardContent">
+          <header>
+            <h2>WishList 4</h2>
+          </header>
+          <ul class="cards__tagwrapper">
+            <li class="cards__tag">카시나</li>
+            <li class="cards__tag">덩크</li>
+          </ul>
+          <img class="cards__img" src="./img/kasina.jpg" alt="카시나-신발" />
+          <button class="cards__button">
+            <i class="fa-solid fa-heart"></i>
+          </button>
+        </article>
+
+        <!--card5-->
+        <article class="cards__cardContent">
+          <header>
+            <h2>WishList 5</h2>
+          </header>
+          <ul class="cards__tagwrapper">
+            <li class="cards__tag">aeae모자</li>
+            <li class="cards__tag">재입고해주세요</li>
+          </ul>
+          <img class="cards__img" src="./img/aeae.jpg" alt="aeae-모자" />
+          <button class="cards__button">
+            <i class="fa-solid fa-heart"></i>
+          </button>
+        </article>
+
+        <!--card6-->
+        <article class="cards__cardContent">
+          <header>
+            <h2>WishList 6</h2>
+          </header>
+          <ul class="cards__tagwrapper">
+            <li class="cards__tag">덩크남고래</li>
+            <li class="cards__tag">범고래는질려요</li>
+          </ul>
+          <img class="cards__img" src="./img/nike.jpg" alt="나이키-덩크" />
+          <button class="cards__button">
+            <i class="fa-solid fa-heart"></i>
+          </button>
+        </article>
+
+        <!--card7-->
+        <article class="cards__cardContent">
+          <header>
+            <h2>WishList 7</h2>
+          </header>
+          <ul class="cards__tagwrapper">
+            <li class="cards__tag">베아니트탑</li>
+            <li class="cards__tag">비비안웨스트우드🫶🏻</li>
+          </ul>
+          <img
+            class="cards__img"
+            src="./img/vivien.jpg"
+            alt="비비안웨스트우드-니트탑"
+          />
+          <button class="cards__button">
+            <i class="fa-solid fa-heart"></i>
+          </button>
+        </article>
+
+        <!--card8-->
+        <article class="cards__cardContent">
+          <header>
+            <h2>WishList 8</h2>
+          </header>
+          <ul class="cards__tagwrapper">
+            <li class="cards__tag">#킨재스퍼락</li>
+            <li class="cards__tag">#예쁘지만안어울릴듯</li>
+          </ul>
+          <img class="cards__img" src="./img/keen.jpg" alt="킨-신발" />
+          <button class="cards__button">
+            <i class="fa-solid fa-heart"></i>
+          </button>
+        </article>
+
+        <!--card9-->
+        <article class="cards__cardContent">
+          <header>
+            <h2>WishList 9</h2>
+          </header>
+          <ul class="cards__tagwrapper">
+            <li class="cards__tag">포터탱커가방</li>
+            <li class="cards__tag">일본에서사올걸</li>
+          </ul>
+          <img class="cards__img" src="./img/poter.jpg" alt="포터-가방" />
+          <button class="cards__button">
+            <i class="fa-solid fa-heart"></i>
+          </button>
+        </article>
+      </section>
+    </main>
+  </body>
+</html>
