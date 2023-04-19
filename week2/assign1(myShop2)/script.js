@@ -2,11 +2,6 @@ import ITEM_DATA from "./itemData.js";
 
 //확인용
 window.onload = function () {
-  console.log("자바스크립트 연결!");
-  let i;
-  for (i = 0; i < ITEM_DATA.length; i++) {
-    console.log(ITEM_DATA[i].category);
-  }
   showCard(ITEM_DATA);
 };
 
@@ -34,6 +29,6 @@ const showCard = (itemDatas) => {
         `;
     cards.appendChild(card);
   });
-
-  console.log("성공!");
 };
+
+//nav 카테고리 선택 구현
