@@ -7,7 +7,7 @@ import ITEM_DATA from "./itemData.js";
 
 //카드 보여주기 - 일단 태그 두개로 고정 ..
 const showCard = (itemDatas) => {
-  itemDatas.map((item) => {
+  itemDatas.forEach((item) => {
     const cards = document.querySelector(".cards");
     const card = document.createElement("article");
     card.classList.add("cards__cardContent");
@@ -90,24 +90,48 @@ const handleSelectList = () => {
 
 const showTags = (selectedCateg) => {
   console.log(selectedCateg);
-  selectedCateg.map((label) => {
+  selectedCateg.forEach((label) => {
     const tags = document.querySelector(".category-tags");
     const tag = document.createElement("div");
+
     tag.classList.add("category-tags__tagItems");
+    tag.id = label.id;
     tag.innerHTML = `
       <span class="category-tags__label">${label.id}</span>
       <i class="fa-solid fa-xmark"></i>
       `;
     tags.appendChild(tag);
+
+    const delBtn = tag.querySelector("i");
+
+    delBtn.addEventListener("click", (e) => {
+      console.log(e.currentTarget);
+      // X 버튼으로 태그 삭제
+      delCateg(e.currentTarget);
+    });
   });
 };
 
 //클릭시 태그 영역 초기화 해주는 함수
 const initTags = () => {
   const remainTags = document.querySelector(".category-tags");
-  let cnt = remainTags.childElementCount;
-  for (let i = 0; i < cnt; i++) {
+  while (remainTags.firstChild) {
     remainTags.removeChild(remainTags.firstChild);
+  }
+};
+
+//카테고리 태그 삭제
+const delCateg = (t) => {
+  const tagLabel = t.parentNode.id;
+  if (tagLabel === "ALL") {
+    selectedCateg.forEach((tag) => {
+      document.getElementById(tag.id).checked = false;
+      initTags();
+      selectedCateg = [];
+    });
+  } else {
+    document.getElementById(tagLabel).checked = false;
+    t.parentNode.remove();
   }
 };
 
