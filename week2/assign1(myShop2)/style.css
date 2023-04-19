@@ -184,16 +184,24 @@ main {
   margin-bottom: 0.7rem;
 }
 
-.cards__tagwrapper {
+.cards__tagWrapper {
   display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 10rem;
+  height: 0.7rem;
+  margin: 0.5rem 0 1rem 0;
+}
+
+.cards__tagItems {
+  display: flex;
+  height: inherit;
+  width: 6rem;
   flex-flow: row wrap;
   justify-content: center;
   align-items: center;
   overflow: hidden;
   word-break: keep-all;
-  width: 9rem;
-  height: 0.7rem;
-  margin: 0.5rem 0;
 }
 
 .cards__tag {
@@ -206,6 +214,22 @@ main {
 
 .cards__tag::before {
   content: "#";
+}
+
+.cards__tagBtn {
+  width: 1.3rem;
+  margin: 0 1rem;
+  border: none;
+
+  background-color: transparent;
+  border-radius: 1rem;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.cards__tagBtn:hover {
+  background-color: black;
+  color: white;
 }
 
 .cards__img {
