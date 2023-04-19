@@ -1,4 +1,4 @@
-const itemData = [
+const ITEM_DATA = [
   {
     name: "WishList 1",
     tags: ["디젤피카부", "태그길게길게넘치나안넘치나테스트"],
@@ -58,8 +58,10 @@ const itemData = [
   {
     name: "WishList 9",
     tags: ["포터탱커가방", "일본에서사올걸"],
-    imgSrc: "./img/poter.jp",
+    imgSrc: "./img/poter.jpg",
     imgAlt: "포터-가방",
     category: "ETC",
   },
 ];
+
+export default ITEM_DATA;
