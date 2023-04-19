@@ -129,13 +129,58 @@ main {
   color: grey;
   cursor: pointer;
 }
+/* main content section */
+.main-content {
+  display: flex;
+  flex-direction: column;
+  padding: 0 1.5rem;
+}
+/* category tag  */
+.category-tags {
+  display: flex;
+  margin-bottom: 1rem;
+}
 
-/* card section */
+.category-tags__tagItems {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 1rem;
+  margin-right: 0.5rem;
+  width: fit-content;
+  height: 3rem;
+  background-color: black;
+  color: white;
+  border-radius: 1rem;
+  box-shadow: 0.1rem 0.1rem 0.3rem grey;
+}
+
+.category-tags__label {
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0 1rem 0 0.5rem;
+}
+
+.category-tags__tagItems > i {
+  font-size: 1rem;
+  cursor: pointer;
+  width: 1.5rem;
+  height: 1.4rem;
+  text-align: center;
+  line-height: 1.4rem;
+  border-radius: 0.7rem;
+}
+
+.category-tags__tagItems > i:hover {
+  background-color: white;
+  color: grey;
+}
+
+/* card */
 .cards {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   width: 100%;
-  padding: 0 1.5rem;
 }
 
 /* 반응형 구현 */

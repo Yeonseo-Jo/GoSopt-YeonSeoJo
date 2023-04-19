@@ -1,3 +1,4 @@
+//Card section에 들어갈 Item Data 상수
 const ITEM_DATA = [
   {
     name: "WishList 1",
