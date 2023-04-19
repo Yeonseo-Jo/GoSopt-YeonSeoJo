@@ -196,7 +196,7 @@ main {
 .cards__tagItems {
   display: flex;
   height: inherit;
-  width: 6rem;
+  width: 8rem;
   flex-flow: row wrap;
   justify-content: center;
   align-items: center;
