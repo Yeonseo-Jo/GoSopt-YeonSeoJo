@@ -4,6 +4,7 @@ import ITEM_DATA from "./itemData.js";
 window.onload = function () {
   showCard(ITEM_DATA);
   handleCategory();
+  onClickModal();
 };
 
 // 카드 보여주기 - 일단 태그 두개로 고정 ..
@@ -24,7 +25,15 @@ const showCard = (itemDatas) => {
           <li class="cards__tag">${item.tags[1]}</li>
         </ul>
         <button class="cards__tagBtn">+</button>
+        <div class="cards__tagModal">
+        <ul class="cards__modalContents">
+          <li class="cards__Modaltag">${item.tags[0]}</li>
+          <li class="cards__Modaltag">${item.tags[1]}</li>
+        </ul>
+        <i class="fa-solid fa-xmark delModal"></i>
       </div>
+      </div>
+
       <img class="cards__img" src="${item.imgSrc}" alt="${item.imgAlt}" />
       <button class="cards__button">
         <i class="fa-solid fa-heart"></i>
@@ -156,6 +165,26 @@ const filterCards = () => {
         : (card.style.display = "none");
     });
   }
+};
+
+// 해시태그 모달
+const onClickModal = () => {
+  const targetBtns = [...document.getElementsByClassName("cards__tagBtn")];
+
+  targetBtns.forEach((openBtn) => {
+    const targetCardTag = openBtn.parentNode;
+    const targetModal = targetCardTag.querySelector(".cards__tagModal");
+    const delBtn = targetModal.querySelector(".delModal");
+
+    openBtn.addEventListener("click", () => {
+      console.log(targetModal);
+      targetModal.style.display = "flex";
+    });
+
+    delBtn.addEventListener("click", () => {
+      targetModal.style.display = "none";
+    });
+  });
 };
 
 // //함수 실행

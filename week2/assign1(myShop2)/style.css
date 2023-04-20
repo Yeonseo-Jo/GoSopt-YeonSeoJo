@@ -223,6 +223,8 @@ main {
   height: 18rem;
   padding: 1rem;
   border: 0.01rem solid #dddddd;
+  z-index: 0;
+  position: relative;
 }
 
 .cards__cardContent > * {
@@ -257,15 +259,16 @@ main {
   text-align: center;
 }
 
-.cards__tag::before {
+.cards__tag::before,
+.cards__Modaltag::before {
   content: "#";
+  padding-right: 0.3rem;
 }
 
 .cards__tagBtn {
   width: 1.3rem;
   margin: 0 1rem;
   border: none;
-
   background-color: transparent;
   border-radius: 1rem;
   font-weight: 900;
@@ -275,6 +278,45 @@ main {
 .cards__tagBtn:hover {
   background-color: black;
   color: white;
+}
+
+/* 해시태그 모달 부분 */
+.cards__tagModal {
+  display: none;
+  position: absolute;
+  padding: 1.7rem 1rem;
+  margin: 1rem;
+  background-color: black;
+  color: white;
+  transform: translate(0, 50%);
+  border-radius: 1.5rem;
+  box-shadow: 0.2rem 0.2rem 0.3rem grey;
+  z-index: 10;
+}
+
+.cards__modalContents {
+  margin-right: 0.4rem;
+}
+
+.cards__Modaltag {
+  margin-bottom: 0.3rem;
+  font-size: 0.8rem;
+}
+
+.cards__tagModal > .delModal {
+  height: fit-content;
+  padding: 0.2rem 0.3rem;
+  border: none;
+  background-color: transparent;
+  border-radius: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.cards__tagModal > .delModal:hover {
+  cursor: pointer;
+  background-color: white;
+  color: grey;
 }
 
 .cards__img {
