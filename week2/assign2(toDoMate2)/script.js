@@ -2,6 +2,8 @@ import TODO_DATA from "./todoData.js";
 
 window.onload = function () {
   showTodoList(TODO_DATA);
+  const cnt = onClickDone();
+  // console.log(cnt);
 };
 
 //투두리스트 영역을 로드하는 함수 (Template 이용!)
@@ -39,4 +41,29 @@ const showTodoContent = (todos) => {
     todoContentHtml += newContentHtml;
   });
   return todoContentHtml;
+};
+
+// 할일 목록의 완료 상태를 관리하는 이벤트 함수
+const onClickDone = () => {
+  const todoLists = [...document.getElementsByClassName("todolist__content")];
+  const targetDay = document.querySelector(".highlight");
+  let remainNum = targetDay.querySelector(".calender__remainNum");
+  let cntDone = todoLists.length;
+
+  todoLists.forEach((targetLi) => {
+    targetLi.addEventListener("click", () => {
+      //할일 목록을 클릭하면 완료로, 남은 할 일 숫자 감소하도록 바꾸기.
+      if (targetLi.dataset.checked === "false") {
+        targetLi.dataset.checked = true;
+        cntDone--;
+      } else {
+        // 완료한 일을 다시 클릭하면 미완료 상태로, 남은 할 일 숫자 증가하도록 바꾸기.
+        targetLi.dataset.checked = false;
+        cntDone++;
+      }
+      remainNum.innerText = cntDone;
+      console.log(cntDone);
+    });
+  });
+  return cntDone;
 };
