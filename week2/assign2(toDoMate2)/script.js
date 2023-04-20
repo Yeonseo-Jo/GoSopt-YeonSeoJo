@@ -77,7 +77,7 @@ const onClickToDo = () => {
   });
 };
 
-// 남은 할 일 개수 초기화 함수
+// 남은 할 일 개수 초기화 함수. 각 상황에 맞게 할 일 개수를 센다.
 const handleCntDone = () => {
   todoLists = [...document.getElementsByClassName("todolist__content")];
   cntDone = todoLists.length;
@@ -143,7 +143,7 @@ const handleForm = (category) => {
 
   currCateg.appendChild(newLi);
   newLi.addEventListener("click", () => {
-    // 기본 값이 false이므로 만약 새로 추가한 list의 chekced 값이 true라면 한 번 눌렀다가 취소하는 경우.
+    // 기본 값이 false이므로 -> 만약 새로 추가한 list의 chekced 값이 true라면 한 번 눌렀다가 취소하는 경우.
     if (newLi.dataset.checked === "true") {
       newLi.dataset.checked = false;
       handleCntDone();
@@ -156,6 +156,7 @@ const handleForm = (category) => {
   handleCntDone();
 };
 
+/*** footer 관련 함수 ***/
 // footer 메뉴 라우팅
 const handleNavigate = () => {
   const navigateBtns = [...document.getElementsByClassName("footer__button")];
