@@ -3,11 +3,14 @@ import TODO_DATA from "./todoData.js";
 let CUR_DATA = TODO_DATA;
 window.onload = function () {
   showTodoList(CUR_DATA);
+
   handleCntDone();
   onClickToDo();
 
   handleOpenModal();
   handleCloseModal();
+
+  handleNavigate();
 };
 
 //투두리스트 영역을 로드하는 함수 (Template 이용!)
@@ -151,4 +154,23 @@ const handleForm = (category) => {
     }
   });
   handleCntDone();
+};
+
+// footer 메뉴 라우팅
+const handleNavigate = () => {
+  const navigateBtns = [...document.getElementsByClassName("footer__button")];
+  let btnName;
+  navigateBtns.forEach((targetBtn) => {
+    targetBtn.addEventListener("click", () => {
+      btnName = targetBtn.querySelector("p").innerText;
+      switch (btnName) {
+        case "달력":
+          window.location.href = "./index.html";
+          break;
+        case "MY":
+          window.location.href = "./myCategory.html";
+          break;
+      }
+    });
+  });
 };
