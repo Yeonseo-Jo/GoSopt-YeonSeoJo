@@ -29,18 +29,13 @@
       <h1 class="header__title">ys's todo mate</h1>
     </header>
 
+    <!-- add todo modal -->
     <aside>
       <section class="addTodo__Modal">
         <div class="modal__overlay"></div>
         <div class="modal__formContainer">
           <form class="modal__form">
-            <input
-              class="modal__form-input"
-              type="text"
-              name="newTodos"
-              required
-              autofocus
-            />
+            <input type="text" name="tdoContent" />
             <button class="modal__submitBtn" type="submit">추가</button>
           </form>
         </div>
@@ -196,9 +191,9 @@
       <article class="todolist__category">
         <div class="todolist__title {color}">
           <h2>{category}</h2>
-          <button>+</button>
+          <button type="button" class="todolist__addBtn">+</button>
         </div>
-        <ul class="todolist__contentWrapper {category}">
+        <ul class="todolist__contentWrapper" id="{categoryName}">
           {todoContent}
         </ul>
       </article>

@@ -67,11 +67,12 @@ header {
   z-index: 100;
 }
 
-.modal__form-input {
+.modal__form > input {
   margin-bottom: 1rem;
   width: 13rem;
   height: 1.5rem;
   background-color: white;
+  color: black;
 }
 
 .modal__submitBtn {
