@@ -87,7 +87,6 @@ const handleCntDone = () => {
     }
   });
   remainNum.innerHTML = cntDone;
-  console.log(cntDone, "!!! 이게 진짜?");
 };
 
 /*** 새로운 할 일 추가 모달 관련 함수들***/
@@ -126,15 +125,12 @@ const handleCloseModal = () => {
 
 // 폼 정보 받아와서 새 할 일 리스트 만들기
 const handleForm = (category) => {
-  console.log("*****", category, "****");
   const targetModal = document.querySelector(".addTodo__Modal");
   const targetForm = targetModal.querySelector(".modal__form");
   const targetInput = targetForm.querySelector("input");
-
-  console.log(targetInput.value);
-  console.log(category);
   let currCateg = document.getElementById(category);
   let newLi = document.createElement("li");
+
   newLi.classList.add("todolist__content");
   newLi.setAttribute("data-checked", false);
   newLi.innerHTML = `
@@ -143,7 +139,6 @@ const handleForm = (category) => {
     `;
 
   currCateg.appendChild(newLi);
-  console.log(newLi);
   newLi.addEventListener("click", () => {
     // 기본 값이 false이므로 만약 새로 추가한 list의 chekced 값이 true라면 한 번 눌렀다가 취소하는 경우.
     if (newLi.dataset.checked === "true") {
