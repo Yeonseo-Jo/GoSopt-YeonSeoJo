@@ -145,19 +145,15 @@ const filterCards = () => {
     categIds.push(categ.id);
   });
   if (categIds.length === 0) {
+    // 카테고리가 아무것도 선택되어 있지 않으면 전체 카드를 보여준다.
     cards.forEach((card) => {
       card.style.display = "flex";
     });
   } else {
     cards.forEach((card) => {
-      if (
-        categIds.includes("ALL") ||
-        categIds.includes(card.dataset.category)
-      ) {
-        card.style.display = "flex";
-      } else {
-        card.style.display = "none";
-      }
+      categIds.includes("ALL") || categIds.includes(card.dataset.category)
+        ? (card.style.display = "flex")
+        : (card.style.display = "none");
     });
   }
 };
