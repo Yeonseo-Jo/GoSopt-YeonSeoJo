@@ -31,6 +31,55 @@ header {
   font-family: "Black Han Sans", sans-serif;
 }
 
+/* add Todo Modal */
+.addTodo__Modal {
+  display: none;
+}
+
+.modal__overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  z-index: 10;
+}
+
+.modal__formContainer {
+  position: relavie;
+}
+
+.modal__form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate3d(-50%, -50%, 0);
+  width: 20rem;
+  height: 10rem;
+  background-color: grey;
+  border-radius: 2rem;
+  z-index: 100;
+}
+
+.modal__form-input {
+  margin-bottom: 1rem;
+  width: 13rem;
+  height: 1.5rem;
+  background-color: white;
+}
+
+.modal__submitBtn {
+  width: 5rem;
+  height: 2rem;
+  border-radius: 1rem;
+}
+
 main {
   height: 80%;
 }
