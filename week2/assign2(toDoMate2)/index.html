@@ -88,7 +88,6 @@
         <article class="calender__day">
           <h3 class="calender__text">일</h3>
           <div class="calender__icon">
-            <i class="fa-solid fa-heart"></i>
             <p class="calender__remainNum">2</p>
           </div>
           <buton type="button" class="calender__dayNum"><p>9</p></buton>
@@ -97,7 +96,7 @@
 
       <!-- todo section -->
       <section class="todolist">
-        <article class="todolist__category">
+        <!-- <article class="todolist__category">
           <div class="todolist__title yellow">
             <h2>📆 일정</h2>
             <button>+</button>
@@ -159,9 +158,10 @@
               <p class="todolist__detail">맛도리 먹으러 가기</p>
             </li>
           </ul>
-        </article>
+        </article> -->
       </section>
     </main>
+
     <footer>
       <button class="footer__button">
         <i class="fa-solid fa-house"></i>
@@ -172,5 +172,26 @@
         <a class="footer__text" href="#">MY</a>
       </button>
     </footer>
+
+    <template id="todolist__template">
+      <article class="todolist__category">
+        <div class="todolist__title {color}">
+          <h2>{category}</h2>
+          <button>+</button>
+        </div>
+        <ul class="todolist__contentWrapper {category}">
+          {todoContent}
+        </ul>
+      </article>
+    </template>
+
+    <template id="todoContent__template">
+      <li class="todolist__content {checked}">
+        <i class="fa-solid fa-heart"></i>
+        <p class="todolist__detail">{todoDetail}</p>
+      </li>
+    </template>
+
+    <script type="module" src="./script.js"></script>
   </body>
 </html>
