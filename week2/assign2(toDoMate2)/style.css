@@ -189,7 +189,7 @@ main {
 }
 
 /* 완료한 할 일은 회색으로 */
-.checked > * {
+.todolist__content[data-checked="true"] > * {
   color: grey;
 }
 
