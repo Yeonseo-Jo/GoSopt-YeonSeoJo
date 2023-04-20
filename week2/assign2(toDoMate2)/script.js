@@ -1,11 +1,13 @@
 import TODO_DATA from "./todoData.js";
 
+let CUR_DATA = TODO_DATA;
 window.onload = function () {
-  showTodoList(TODO_DATA);
-  initCnt();
-  onClickDone();
-  handleModal();
-  closeModal();
+  showTodoList(CUR_DATA);
+  handleCntDone();
+  onClickToDo();
+
+  handleOpenModal();
+  handleCloseModal();
 };
 
 //투두리스트 영역을 로드하는 함수 (Template 이용!)
@@ -46,54 +48,54 @@ const showTodoContent = (todos) => {
   return todoContentHtml;
 };
 
-//!!
+/*** 남은 할 일 표시, 카운트 관리 함수들***/
+// 남은 할 일 세기 위한 전역 변수
 let cntDone;
-// // let todoLists;
-// const cntLists = () => {
-//   const currTodoLists = [
-//     ...document.getElementsByClassName("todolist__content"),
-//   ];
-//   todoLists = currTodoLists;
-// };
-// 할일 목록의 완료 상태를 관리하는 이벤트 함수
+let todoLists;
 
-const onClickDone = () => {
-  const todoLists = [...document.getElementsByClassName("todolist__content")];
-  console.log(todoLists);
-  const targetDay = document.querySelector(".highlight");
-  let remainNum = targetDay.querySelector(".calender__remainNum");
+// 할 일 목록을 클릭할 경우 완료 상태 처리 함수
+const onClickToDo = () => {
+  todoLists = [...document.getElementsByClassName("todolist__content")];
   cntDone = todoLists.length;
 
   todoLists.forEach((targetLi) => {
     targetLi.addEventListener("click", () => {
-      //할일 목록을 클릭하면 완료로, 남은 할 일 숫자 감소하도록 바꾸기.
+      //할일 목록을 클릭하면 완료로
       if (targetLi.dataset.checked === "false") {
         targetLi.dataset.checked = true;
-        cntDone--;
+        // cntDone--;
       } else {
-        // 완료한 일을 다시 클릭하면 미완료 상태로, 남은 할 일 숫자 증가하도록 바꾸기.
+        // 완료한 일을 다시 클릭하면 미완료 상태로
         targetLi.dataset.checked = false;
-        cntDone++;
       }
-      remainNum.innerText = cntDone;
-      console.log(cntDone);
+
+      handleCntDone();
     });
   });
-  return cntDone;
 };
 
 // 남은 할 일 개수 초기화 함수
-const initCnt = () => {
-  const todoLists = [...document.getElementsByClassName("todolist__content")];
+const handleCntDone = () => {
+  todoLists = [...document.getElementsByClassName("todolist__content")];
+  cntDone = todoLists.length;
   const targetDay = document.querySelector(".highlight");
   let remainNum = targetDay.querySelector(".calender__remainNum");
-  let cntDone = todoLists.length;
+
+  todoLists.forEach((targetLi) => {
+    if (targetLi.dataset.checked === "true") {
+      cntDone--;
+    }
+  });
   remainNum.innerHTML = cntDone;
+  console.log(cntDone, "!!! 이게 진짜?");
 };
 
-//모달 열고 닫기
+/*** 새로운 할 일 추가 모달 관련 함수들***/
+// 모달을 연 카테고리를 구분하기 위한 전역변수
 let targetCateg;
-const handleModal = () => {
+
+// 모달 열기 함수
+const handleOpenModal = () => {
   const addBtns = [...document.getElementsByClassName("todolist__addBtn")];
   const targetModal = document.querySelector(".addTodo__Modal");
   const targetForm = targetModal.querySelector(".modal__form");
@@ -109,7 +111,8 @@ const handleModal = () => {
   });
 };
 
-const closeModal = () => {
+// 모달 닫기 함수
+const handleCloseModal = () => {
   const closeBtn = document.querySelector(".modal__submitBtn");
   const targetModal = document.querySelector(".addTodo__Modal");
 
@@ -140,5 +143,17 @@ const handleForm = (category) => {
     `;
 
   currCateg.appendChild(newLi);
-  initCnt();
+  console.log(newLi);
+  newLi.addEventListener("click", () => {
+    // 기본 값이 false이므로 만약 새로 추가한 list의 chekced 값이 true라면 한 번 눌렀다가 취소하는 경우.
+    if (newLi.dataset.checked === "true") {
+      newLi.dataset.checked = false;
+      handleCntDone();
+    } else {
+      // 새로 추가한 list를 눌렀을 경우
+      newLi.dataset.checked = true;
+      handleCntDone();
+    }
+  });
+  handleCntDone();
 };
