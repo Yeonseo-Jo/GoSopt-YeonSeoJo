@@ -1,11 +1,12 @@
 import ITEM_DATA from "./itemData.js";
 
 //확인용
-// window.onload = function () {
-//   showCard(ITEM_DATA);
-// };
+window.onload = function () {
+  showCard(ITEM_DATA);
+  handleCategory();
+};
 
-//카드 보여주기 - 일단 태그 두개로 고정 ..
+// 카드 보여주기 - 일단 태그 두개로 고정 ..
 const showCard = (itemDatas) => {
   itemDatas.forEach((item) => {
     const cards = document.querySelector(".cards");
@@ -36,7 +37,6 @@ const showCard = (itemDatas) => {
 //nav 카테고리 선택 구현
 let selectedCateg = [];
 const categories = [...document.querySelectorAll(".nav__category > input")];
-const cardItems = [...document.querySelectorAll(".card")];
 const selectAll = document.getElementById("ALL");
 
 const handleCategory = () => {
@@ -46,6 +46,7 @@ const handleCategory = () => {
       initTags();
       handleCheck(targetCateg);
       showTags(selectedCateg);
+      filterCards(targetCateg);
     });
   });
 };
@@ -57,13 +58,12 @@ const handleCheck = (t) => {
     categories.forEach((category) => {
       category.checked = selectAll.checked;
       handleSelectList();
-      //   showTags(selectedCateg);
     });
   } else {
     document.getElementById(currCateg).checked;
     handleSelectList();
-    // showTags(selectedCateg);
   }
+  //   handleSelectList();
 };
 
 //현재 선택된 카테고리 리스트를 관리하는 함수
@@ -79,7 +79,7 @@ const handleSelectList = () => {
     if (category.checked === false) {
       let idx = selectedCateg.indexOf(category);
       while (idx > -1) {
-        selectedCateg.splice(idx.i);
+        selectedCateg.splice(idx, 1);
         idx = selectedCateg.indexOf(category);
       }
     }
@@ -131,10 +131,37 @@ const delCateg = (t) => {
     });
   } else {
     document.getElementById(tagLabel).checked = false;
+    handleSelectList();
     t.parentNode.remove();
+  }
+  filterCards();
+};
+
+// 카테고리에 맞게 카드 로드
+const filterCards = () => {
+  const cards = [...document.getElementsByClassName("cards__cardContent")];
+  const categIds = [];
+  selectedCateg.forEach((categ) => {
+    categIds.push(categ.id);
+  });
+  if (categIds.length === 0) {
+    cards.forEach((card) => {
+      card.style.display = "flex";
+    });
+  } else {
+    cards.forEach((card) => {
+      if (
+        categIds.includes("ALL") ||
+        categIds.includes(card.dataset.category)
+      ) {
+        card.style.display = "flex";
+      } else {
+        card.style.display = "none";
+      }
+    });
   }
 };
 
-//함수 실행
-showCard(ITEM_DATA);
-handleCategory();
+// //함수 실행
+// showCard(ITEM_DATA);
+// handleCategory();
