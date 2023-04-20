@@ -2,6 +2,7 @@ import TODO_DATA from "./todoData.js";
 
 window.onload = function () {
   showTodoList(TODO_DATA);
+  initCnt();
   const cnt = onClickDone();
   // console.log(cnt);
 };
@@ -66,4 +67,12 @@ const onClickDone = () => {
     });
   });
   return cntDone;
+};
+
+const initCnt = () => {
+  const todoLists = [...document.getElementsByClassName("todolist__content")];
+  const targetDay = document.querySelector(".highlight");
+  let remainNum = targetDay.querySelector(".calender__remainNum");
+  let cntDone = todoLists.length;
+  remainNum.innerHTML = cntDone;
 };
