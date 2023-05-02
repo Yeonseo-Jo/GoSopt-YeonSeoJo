@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
-export const Header = (props) => {
+export const Header = ({ currLevel }) => {
   let totalNum = 0;
-  switch (props.currLevel) {
+  switch (currLevel) {
     case "EASY":
       totalNum = 5;
       break;

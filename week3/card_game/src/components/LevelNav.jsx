@@ -1,7 +1,7 @@
 import styled from "styled-components";
 // import { useState } from "react";
 
-export const LevelNav = (props) => {
+export const LevelNav = ({ currLevel, setCurrLevel }) => {
   const levelList = ["EASY", "NORMAL", "HARD"];
   //   const [currLevel, setCurrLevel] = useState("EASY");
 
@@ -17,9 +17,9 @@ export const LevelNav = (props) => {
               id={level}
               type="button"
               onClick={() => {
-                props.setCurrLevel(level);
+                setCurrLevel(level);
               }}
-              selected={level === props.currLevel ? true : false}
+              selected={level === currLevel ? true : false}
             >
               {level}
             </StLevelBtn>
