@@ -1,12 +1,11 @@
 import styled from "styled-components";
-import { useState } from "react";
+// import { useState } from "react";
 
-// import styled from "styled-components";
-export const LevelNav = () => {
+export const LevelNav = (props) => {
   const levelList = ["EASY", "NORMAL", "HARD"];
-  const [currLevel, setCurrLevel] = useState("EASY");
+  //   const [currLevel, setCurrLevel] = useState("EASY");
 
-  console.log(currLevel);
+  //   console.log(currLevel);
 
   return (
     <>
@@ -17,10 +16,10 @@ export const LevelNav = () => {
               key={level}
               id={level}
               type="button"
-              onClick={(e) => {
-                console.log(e.target.id);
-                setCurrLevel(level);
+              onClick={() => {
+                props.setCurrLevel(level);
               }}
+              selected={level === props.currLevel ? true : false}
             >
               {level}
             </StLevelBtn>
@@ -41,7 +40,8 @@ const StLevelBtn = styled.button`
   border: 0;
   padding: 1.7rem;
   margin-right: 2rem;
-  background-color: ${({ theme }) => theme.colors.lightPink};
+  background-color: ${({ selected, theme }) =>
+    selected ? theme.colors.white : theme.colors.lightPink};
   border: none;
   border-radius: 1rem;
   box-shadow: 0.3rem 0.3rem 0.3rem ${({ theme }) => theme.colors.lightPurple};
