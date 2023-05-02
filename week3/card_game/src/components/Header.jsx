@@ -32,5 +32,5 @@ const StTitle = styled.h1`
 
 const StScore = styled.h3`
   font-size: 5rem;
-  color: ${({ theme }) => theme.colors.purple};
+  color: ${({ theme }) => theme.colors.greyPurple};
 `;
