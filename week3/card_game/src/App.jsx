@@ -2,6 +2,7 @@ import styled, { ThemeProvider } from "styled-components";
 import theme from "./styles/theme";
 import { GlobalStyle } from "./styles/GlobalStyle";
 import Header from "./components/Header";
+import LevelNav from "./components/LevelNav";
 
 function App() {
   return (
@@ -9,6 +10,7 @@ function App() {
       <GlobalStyle />
       <StContainer>
         <Header />
+        <LevelNav />
       </StContainer>
     </ThemeProvider>
   );
