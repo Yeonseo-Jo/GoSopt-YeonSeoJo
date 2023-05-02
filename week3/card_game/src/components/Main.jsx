@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { useState } from "react";
 
+import Header from "./Header";
 import LevelNav from "./LevelNav";
 
 export const Main = () => {
@@ -9,6 +10,7 @@ export const Main = () => {
 
   return (
     <>
+      <Header currLevel={currLevel} />
       <StMainContainer>
         <LevelNav currLevel={currLevel} setCurrLevel={setCurrLevel}></LevelNav>
       </StMainContainer>

@@ -1,11 +1,24 @@
 import styled from "styled-components";
 
-export const Header = () => {
+export const Header = (props) => {
+  let totalNum = 0;
+  switch (props.currLevel) {
+    case "EASY":
+      totalNum = 5;
+      break;
+    case "NORMAL":
+      totalNum = 7;
+      break;
+    case "HARD":
+      totalNum = 9;
+      break;
+  }
+
   return (
     <>
       <StHeaderContainer>
         <StTitle>💖 앙꼬를 맞춰주세요 💖</StTitle>
-        <StScore>0/5</StScore>
+        <StScore>0/{totalNum}</StScore>
       </StHeaderContainer>
     </>
   );
