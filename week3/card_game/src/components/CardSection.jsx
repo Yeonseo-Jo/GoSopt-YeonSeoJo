@@ -19,7 +19,7 @@ export const CardSection = ({ currLevel, currCardList }) => {
       setTimeout(() => {
         setmatchedList([]);
         setClickedList([]);
-      }, 1000);
+      }, 700);
     }
   }, [matchedList]);
 
@@ -72,10 +72,8 @@ const StCardsContainer = styled.section`
 `;
 
 const StCardWrapper = styled.article`
-  position: relative;
   margin: 1rem;
   width: 20rem;
   height: 25rem;
-  transition: 0.5s;
-  transform-style: preserve-3d;
+  perspective: 100rem;
 `;
