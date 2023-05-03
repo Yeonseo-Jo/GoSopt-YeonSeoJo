@@ -1,6 +1,7 @@
+import { useState } from "react";
 import styled from "styled-components";
 
-export const Header = ({ currLevel }) => {
+export const Header = ({ currScore, currLevel }) => {
   let totalNum = 0;
   switch (currLevel) {
     case "EASY":
@@ -18,7 +19,9 @@ export const Header = ({ currLevel }) => {
     <>
       <StHeaderContainer>
         <StTitle>💖 앙꼬를 맞춰주세요 💖</StTitle>
-        <StScore>0/{totalNum}</StScore>
+        <StScore>
+          {currScore}/{totalNum}
+        </StScore>
       </StHeaderContainer>
     </>
   );

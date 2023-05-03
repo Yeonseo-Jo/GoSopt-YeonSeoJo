@@ -3,7 +3,12 @@ import { useEffect, useState } from "react";
 
 import Card from "./Card";
 
-export const CardSection = ({ currLevel, currCardList }) => {
+export const CardSection = ({
+  currLevel,
+  currCardList,
+  currScore,
+  setCurrScore,
+}) => {
   const [clickedList, setClickedList] = useState([]);
   const [matchedList, setmatchedList] = useState([]);
 
@@ -12,7 +17,8 @@ export const CardSection = ({ currLevel, currCardList }) => {
       if (matchedList[0] === matchedList[1]) {
         matchedList[0].matchedStatus = true;
         matchedList[1].matchedStatus = true;
-        console.log("성공");
+        setCurrScore((prev) => prev + 1);
+        console.log("성공", currScore);
       } else {
         console.log("실패");
       }
@@ -26,6 +32,7 @@ export const CardSection = ({ currLevel, currCardList }) => {
   useEffect(() => {
     setmatchedList([]);
     setClickedList([]);
+    setCurrScore(0);
     currCardList.forEach((card) => {
       card.matchedStatus = false;
     });

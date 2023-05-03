@@ -5,40 +5,45 @@ import Header from "./Header";
 import LevelNav from "./LevelNav";
 import CardSection from "./CardSection";
 
-import ANKO_DATA from "../assets/datas/ANKO_DATA";
+import {
+  EasyRandomList,
+  NormalRandomList,
+  HardRandomList,
+} from "../utils/shuffleData";
 
 export const Main = () => {
   const [currLevel, setCurrLevel] = useState("EASY");
+  const [currScore, setCurrScore] = useState(0);
 
   console.log(currLevel);
-  // 데이터 랜덤 정렬 함수
-  const shuffle = (array) => {
-    let shuffleArray = array.sort(() => Math.random() - 0.5);
-    return shuffleArray;
-  };
+  console.log(currScore);
 
-  // swith 문으로 선택 된 레벨에 맞게 랜덤으로 카드를 뽑아준다.
-  let randomCardList;
+  let currCardList;
   switch (currLevel) {
     case "EASY":
-      randomCardList = shuffle([...ANKO_DATA]).splice(0, 5);
+      currCardList = EasyRandomList;
       break;
     case "NORMAL":
-      randomCardList = shuffle([...ANKO_DATA]).splice(0, 7);
+      currCardList = NormalRandomList;
       break;
     case "HARD":
-      randomCardList = shuffle([...ANKO_DATA]).splice(0, 9);
+      currCardList = HardRandomList;
       break;
   }
-  // 뽑아준 카드를 2쌍씩 만들어주고, 다시 랜덤 정렬한다.
-  const currCardList = shuffle([...randomCardList, ...randomCardList]);
+
+  console.log(currCardList);
 
   return (
     <>
-      <Header currLevel={currLevel} />
+      <Header currScore={currScore} currLevel={currLevel} />
       <StMainContainer>
         <LevelNav currLevel={currLevel} setCurrLevel={setCurrLevel}></LevelNav>
-        <CardSection currLevel={currLevel} currCardList={currCardList} />
+        <CardSection
+          currLevel={currLevel}
+          currCardList={currCardList}
+          currScore={currScore}
+          setCurrScore={setCurrScore}
+        />
       </StMainContainer>
     </>
   );
