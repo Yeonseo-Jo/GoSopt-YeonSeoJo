@@ -19,7 +19,7 @@ export const CardSection = ({ currLevel, currCardList }) => {
       setTimeout(() => {
         setmatchedList([]);
         setClickedList([]);
-      }, 500);
+      }, 1000);
     }
   }, [matchedList]);
 
@@ -34,6 +34,7 @@ export const CardSection = ({ currLevel, currCardList }) => {
   const handleCardChoice = (card, idx) => {
     setmatchedList([...matchedList, card]);
     setClickedList([...clickedList, idx]);
+    console.log(clickedList);
   };
 
   return (
@@ -49,7 +50,9 @@ export const CardSection = ({ currLevel, currCardList }) => {
               <Card
                 card={card}
                 idx={idx}
-                handleCardChoice={handleCardChoice}
+                handleCardChoice={
+                  clickedList.length < 2 ? handleCardChoice : null
+                }
                 isFlipped={clickedList.includes(idx) || card.matchedStatus}
               />
             </StCardWrapper>

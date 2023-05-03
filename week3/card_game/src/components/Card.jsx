@@ -2,9 +2,11 @@ import styled from "styled-components";
 
 export const Card = ({ idx, card, handleCardChoice, isFlipped }) => {
   const handleCardClick = () => {
-    handleCardChoice(card, idx);
-    console.log(card.matchedStatus);
+    if (handleCardChoice !== null) {
+      handleCardChoice(card, idx);
+    }
   };
+
   return (
     <>
       <StCardFront id={idx} clasName={card.id} onClick={handleCardClick}>
