@@ -8,6 +8,8 @@ export const CardSection = ({
   currCardList,
   currScore,
   setCurrScore,
+  isReset,
+  setIsReset,
 }) => {
   const [clickedList, setClickedList] = useState([]);
   const [matchedList, setmatchedList] = useState([]);
@@ -36,7 +38,8 @@ export const CardSection = ({
     currCardList.forEach((card) => {
       card.matchedStatus = false;
     });
-  }, [currLevel]);
+    setIsReset(false);
+  }, [currLevel, isReset]);
 
   const handleCardChoice = (card, idx) => {
     setmatchedList([...matchedList, card]);
