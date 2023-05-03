@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import Header from "./Header";
 import LevelNav from "./LevelNav";
@@ -17,6 +17,7 @@ export const Main = () => {
   const [currLevel, setCurrLevel] = useState("EASY");
   const [currScore, setCurrScore] = useState(0);
   const [isReset, setIsReset] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   console.log(currLevel);
   console.log(currScore);
@@ -41,6 +42,16 @@ export const Main = () => {
 
   console.log(currCardList);
 
+  useEffect(() => {
+    if (currScore === totalScore) {
+      setIsModalOpen(true);
+    }
+  }, [currScore, totalScore]);
+
+  const handleModalClose = () => {
+    setIsModalOpen(false);
+  };
+
   return (
     <>
       <Header currScore={currScore} totalScore={totalScore} />
@@ -56,7 +67,7 @@ export const Main = () => {
         />
       </StMainContainer>
       <ResetBtn setIsReset={setIsReset} />
-      <SuccessModal currScore={currScore} totalScore={totalScore} />
+      {isModalOpen && <SuccessModal handleModalClose={handleModalClose} />}
     </>
   );
 };
