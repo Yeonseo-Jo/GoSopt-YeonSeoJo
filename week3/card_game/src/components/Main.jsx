@@ -11,6 +11,7 @@ import {
   NormalRandomList,
   HardRandomList,
 } from "../utils/shuffleData";
+import SuccessModal from "./SuccessModal";
 
 export const Main = () => {
   const [currLevel, setCurrLevel] = useState("EASY");
@@ -22,15 +23,19 @@ export const Main = () => {
   console.log(isReset);
 
   let currCardList;
+  let totalScore;
   switch (currLevel) {
     case "EASY":
       currCardList = EasyRandomList;
+      totalScore = 5;
       break;
     case "NORMAL":
       currCardList = NormalRandomList;
+      totalScore = 7;
       break;
     case "HARD":
       currCardList = HardRandomList;
+      totalScore = 9;
       break;
   }
 
@@ -38,7 +43,7 @@ export const Main = () => {
 
   return (
     <>
-      <Header currScore={currScore} currLevel={currLevel} />
+      <Header currScore={currScore} totalScore={totalScore} />
       <StMainContainer>
         <LevelNav currLevel={currLevel} setCurrLevel={setCurrLevel}></LevelNav>
         <CardSection
@@ -51,6 +56,7 @@ export const Main = () => {
         />
       </StMainContainer>
       <ResetBtn setIsReset={setIsReset} />
+      <SuccessModal currScore={currScore} totalScore={totalScore} />
     </>
   );
 };

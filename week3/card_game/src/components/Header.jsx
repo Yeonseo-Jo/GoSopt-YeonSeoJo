@@ -1,26 +1,26 @@
-import { useState } from "react";
+// import { useState } from "react";
 import styled from "styled-components";
 
-export const Header = ({ currScore, currLevel }) => {
-  let totalNum = 0;
-  switch (currLevel) {
-    case "EASY":
-      totalNum = 5;
-      break;
-    case "NORMAL":
-      totalNum = 7;
-      break;
-    case "HARD":
-      totalNum = 9;
-      break;
-  }
+export const Header = ({ currScore, totalScore }) => {
+  // let totalNum = 0;
+  // switch (currLevel) {
+  //   case "EASY":
+  //     totalNum = 5;
+  //     break;
+  //   case "NORMAL":
+  //     totalNum = 7;
+  //     break;
+  //   case "HARD":
+  //     totalNum = 9;
+  //     break;
+  // }
 
   return (
     <>
       <StHeaderContainer>
         <StTitle>💖 앙꼬를 맞춰주세요 💖</StTitle>
         <StScore>
-          {currScore}/{totalNum}
+          {currScore}/{totalScore}
         </StScore>
       </StHeaderContainer>
     </>

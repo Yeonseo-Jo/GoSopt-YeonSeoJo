@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const Card = ({ idx, card, handleCardChoice, isFlipped }) => {
   const handleCardClick = () => {
+    console.log(card);
     if (handleCardChoice !== null) {
       handleCardChoice(card, idx);
     }

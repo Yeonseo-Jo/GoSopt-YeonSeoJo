@@ -18,7 +18,6 @@ export const CardSection = ({
     if (matchedList.length === 2) {
       if (matchedList[0] === matchedList[1]) {
         matchedList[0].matchedStatus = true;
-        matchedList[1].matchedStatus = true;
         setCurrScore((prev) => prev + 1);
         console.log("성공", currScore);
       } else {
@@ -44,7 +43,7 @@ export const CardSection = ({
   const handleCardChoice = (card, idx) => {
     setmatchedList([...matchedList, card]);
     setClickedList([...clickedList, idx]);
-    console.log(clickedList);
+    console.log("!!!", clickedList);
   };
 
   return (
