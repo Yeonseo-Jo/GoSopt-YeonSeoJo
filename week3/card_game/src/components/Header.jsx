@@ -36,7 +36,6 @@ const StHeaderContainer = styled.header`
   align-items: center;
   padding: 2rem;
   width: 100%;
-  height: 25vh;
   background-color: ${({ theme }) => theme.colors.lightPurple};
 `;
 
