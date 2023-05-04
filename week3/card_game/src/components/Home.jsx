@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 
 import Header from "./Header";
 import LevelNav from "./LevelNav";
-import CardSection from "./CardSection";
+import CardSection from "./Card/CardSection";
 import ResetBtn from "./ResetBtn";
 
 import {
