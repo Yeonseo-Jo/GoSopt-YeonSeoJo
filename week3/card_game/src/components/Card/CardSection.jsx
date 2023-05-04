@@ -81,6 +81,7 @@ const StCardsContainer = styled.section`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  padding: 0 8rem;
   background-color: ${({ theme }) => theme.colors.lightYellow};
 `;
 
