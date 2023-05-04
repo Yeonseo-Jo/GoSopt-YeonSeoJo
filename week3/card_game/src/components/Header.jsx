@@ -20,7 +20,7 @@ export const Header = ({ currScore, totalScore }) => {
       <StHeaderContainer>
         <StTitle>💖 앙꼬를 맞춰주세요 💖</StTitle>
         <StScore ref={scoreRef}>
-          {currScore}/{totalScore}
+          {currScore} / {totalScore}
         </StScore>
       </StHeaderContainer>
     </>
