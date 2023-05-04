@@ -2,13 +2,15 @@ import { useEffect, useRef } from "react";
 import styled, { keyframes } from "styled-components";
 
 export const Header = ({ currScore, totalScore }) => {
+  // 점수 올라갈 때 애니메이션 속성 지정을 위한 점수 부분 ref
   const scoreRef = useRef();
 
+  // 0점이 아닐 때 점수가 올라가면 isCorrect 클래스를 붙여줘 css로 네온 애니메이션 지정
   useEffect(() => {
     if (currScore !== 0) {
-      scoreRef.current.classList.add("IsCorrect");
+      scoreRef.current.classList.add("isCorrect");
       setTimeout(() => {
-        scoreRef.current.classList.remove("IsCorrect");
+        scoreRef.current.classList.remove("isCorrect");
       }, 1000);
     }
   }, [currScore]);
@@ -43,6 +45,7 @@ const StTitle = styled.h1`
   color: ${({ theme }) => theme.colors.purple};
 `;
 
+// 네온 애니메이션을 위한 keyframes
 const neon = keyframes`
   0%,
   100% {
@@ -57,7 +60,7 @@ const neon = keyframes`
 const StScore = styled.h3`
   font-size: 5rem;
   color: ${({ theme }) => theme.colors.greyPurple};
-  &.IsCorrect {
+  &.isCorrect {
     animation: ${neon} 1s ease infinite;
     -moz-animation: ${neon} 1s ease infinite;
     -webkit-animation: ${neon} 1s ease infinite;

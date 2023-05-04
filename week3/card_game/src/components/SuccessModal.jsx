@@ -1,9 +1,10 @@
 import styled from "styled-components";
 import reactDom from "react-dom";
-// import { useState } from "react";
 
 export const SuccessModal = ({ handleModalClose }) => {
+  // createPortal로 모달을 띄울 영역을 잡아주기 위한 변수
   const modalRoot = document.getElementById("modal-root");
+
   return reactDom.createPortal(
     <StModalContainer>
       <StModalWrapper>

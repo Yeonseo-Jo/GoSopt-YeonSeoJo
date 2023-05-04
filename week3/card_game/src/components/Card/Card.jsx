@@ -6,6 +6,7 @@ export const Card = ({ idx, card, handleCardChoice, isFlipped }) => {
   const [isClicked, setIsClicked] = useState(false);
 
   const handleCardClick = () => {
+    // 2개 이상 선택하지 않았고 중복 클릭이 아니면 클릭 이벤트에서 cardSection에서 정의한 handleCardChoice 함수 실행
     if (handleCardChoice !== null && isClicked === false) {
       handleCardChoice(card, idx);
       setIsClicked(true);
@@ -18,10 +19,10 @@ export const Card = ({ idx, card, handleCardChoice, isFlipped }) => {
 
   return (
     <StCardFace>
-      <StCardFront id={idx} clasName={card.id} onClick={handleCardClick}>
+      <StCardFront id={idx} onClick={handleCardClick}>
         💖
       </StCardFront>
-      <StCardBack id={idx} clasName={card.id} isFlipped={isFlipped}>
+      <StCardBack id={idx} isFlipped={isFlipped}>
         <img src={card.imgSrc} alt={card.alt} />
       </StCardBack>
     </StCardFace>
@@ -34,8 +35,6 @@ const StCardFace = styled.div`
   position: relative;
   width: 100%;
   height: 100%;
-  /* transition: 0.5s; */
-  /* transform-style: preserve-3d; */
 `;
 const StCard = styled.div`
   display: flex;
@@ -51,6 +50,7 @@ const StCard = styled.div`
   cursor: pointer;
 `;
 
+// 카드 뒷면을 ratateY(180deg)로 먼저 뒤집어 놓고, flipped 되면 앞 면과 뒷면의 rotate를 180도씩 바꿔 뒤집기 구현
 const StCardFront = styled(StCard)`
   background-color: ${({ theme }) => theme.colors.greyPurple};
   box-shadow: 0.5rem 0.5rem 0.3rem ${({ theme }) => theme.colors.lightPink};
