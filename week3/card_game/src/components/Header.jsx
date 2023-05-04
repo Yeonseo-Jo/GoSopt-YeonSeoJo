@@ -11,7 +11,7 @@ export const Header = ({ currScore, totalScore }) => {
       scoreRef.current.classList.add("isCorrect");
       setTimeout(() => {
         scoreRef.current.classList.remove("isCorrect");
-      }, 1000);
+      }, 700);
     }
   }, [currScore]);
 
