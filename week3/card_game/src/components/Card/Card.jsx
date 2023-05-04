@@ -1,10 +1,18 @@
+import { useState } from "react";
 import styled from "styled-components";
 
 export const Card = ({ idx, card, handleCardChoice, isFlipped }) => {
+  //카드 중복 클릭 시 같은 쌍이 뒤집히는 에러 핸들링 용 state 추가
+  const [isClicked, setIsClicked] = useState(false);
+
   const handleCardClick = () => {
-    console.log(card);
-    if (handleCardChoice !== null) {
+    if (handleCardChoice !== null && isClicked === false) {
       handleCardChoice(card, idx);
+      setIsClicked(true);
+      // 이미 클릭 된 카드가 또 클릭되지 않도록 setTimeOut 함수로 0.5초 동안 클릭 이벤트 방지
+      setTimeout(() => {
+        setIsClicked(false);
+      }, 500);
     }
   };
 
