@@ -15,7 +15,7 @@ import {
   HardRandomList,
 } from "../utils/shuffleData";
 
-export const Main = () => {
+export const Home = () => {
   // 선택 된 레벨을 저장하는 state, default 값은 EASY 레벨로 지정
   const [currLevel, setCurrLevel] = useState("EASY");
   // 현재 점수를 저장하는 state
@@ -75,7 +75,7 @@ export const Main = () => {
   );
 };
 
-export default Main;
+export default Home;
 
 // main 영역 (레벨 선택 + 카드 섹션) css
 const StMainContainer = styled.main`
