@@ -44,7 +44,6 @@ const St = {
     justify-content: center;
     width: 100%;
     padding: 2rem;
-    gap: 1rem;
   `,
 
   SearchFormArea: styled.form`
@@ -56,6 +55,7 @@ const St = {
     padding: 0.3rem;
     border: 0.3rem solid ${({ theme }) => theme.colors.grey};
     border-radius: 1rem;
+    font-size: 1.8rem;
     text-align: center;
   `,
 
@@ -64,12 +64,15 @@ const St = {
     background-color: ${({ theme }) => theme.colors.darkerBlue};
     border: none;
     border-radius: 1rem;
+    font-size: 3rem;
     text-align: center;
   `,
   SearchBtn: styled.button`
+    padding: 1rem;
     background-color: ${({ theme }) => theme.colors.darkestBlue};
     color: ${({ theme }) => theme.colors.white};
     border: none;
     border-radius: 1rem;
+    font-size: 3rem;
   `,
 };
