@@ -19,9 +19,8 @@ const St = {
     background-color: ${({ theme }) => theme.colors.blue};
 
     & > h1 {
-      font-style: normal;
-      font-weight: 700;
       font-size: 5rem;
+      font-weight: ${({ theme }) => theme.fontWeights.bold};
       color: ${({ theme }) => theme.colors.white};
     }
   `,

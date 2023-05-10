@@ -56,6 +56,7 @@ const St = {
     border: 0.3rem solid ${({ theme }) => theme.colors.grey};
     border-radius: 1rem;
     font-size: 1.8rem;
+    font-weight: ${({ theme }) => theme.fontWeights.light};
     text-align: center;
   `,
 
@@ -65,6 +66,7 @@ const St = {
     border: none;
     border-radius: 1rem;
     font-size: 3rem;
+    ${({ theme }) => theme.fontWeights.normal};
     text-align: center;
   `,
   SearchBtn: styled.button`
@@ -74,5 +76,6 @@ const St = {
     border: none;
     border-radius: 1rem;
     font-size: 3rem;
+    font-weight: ${({ theme }) => theme.fontWeights.normal};
   `,
 };
