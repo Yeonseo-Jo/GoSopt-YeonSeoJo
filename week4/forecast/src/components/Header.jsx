@@ -16,10 +16,9 @@ const St = {
     display: flex;
     width: 100%;
     padding: 2rem;
-    background-color: ${({ theme }) => theme.colors.headerBlue};
+    background-color: ${({ theme }) => theme.colors.blue};
 
     & > h1 {
-      font-family: ${({ theme }) => theme.font.fontfamily};
       font-style: normal;
       font-weight: 700;
       font-size: 5rem;

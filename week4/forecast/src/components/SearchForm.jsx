@@ -54,20 +54,20 @@ const St = {
 
   SearchSelectBox: styled.select`
     padding: 0.3rem;
-    border: 0.3rem solid ${({ theme }) => theme.colors.borderGrey};
+    border: 0.3rem solid ${({ theme }) => theme.colors.grey};
     border-radius: 1rem;
     text-align: center;
   `,
 
   SearchInput: styled.input`
     padding: 1rem;
-    background-color: ${({ theme }) => theme.colors.formInputBlue};
+    background-color: ${({ theme }) => theme.colors.darkerBlue};
     border: none;
     border-radius: 1rem;
     text-align: center;
   `,
   SearchBtn: styled.button`
-    background-color: ${({ theme }) => theme.colors.formBtnBlue};
+    background-color: ${({ theme }) => theme.colors.darkestBlue};
     color: ${({ theme }) => theme.colors.white};
     border: none;
     border-radius: 1rem;
