@@ -9,8 +9,15 @@ const colors = {
   grey: "rgb(229, 224, 255)",
 };
 
+const fontWeights = {
+  light: "400",
+  normal: "500",
+  bold: "700",
+};
+
 const theme = {
   colors,
+  fontWeights,
 };
 
 export default theme;
