@@ -1,7 +1,8 @@
 import React from "react";
+import PageLayout from "../components/PageLayout";
 
 const Home = () => {
-  return <div>메인 홈 영역</div>;
+  return <PageLayout></PageLayout>;
 };
 
 export default Home;
