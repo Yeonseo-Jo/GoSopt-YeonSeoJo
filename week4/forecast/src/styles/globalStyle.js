@@ -155,6 +155,7 @@ ${reset}
   
 * {
     box-sizing: border-box;
+    font-family: "omyu_pretty";
 }
 `;
 
