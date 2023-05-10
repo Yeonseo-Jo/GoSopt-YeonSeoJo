@@ -1,19 +1,25 @@
 import React, { useState } from "react";
 import { styled } from "styled-components";
+import { useNavigate } from "react-router-dom";
 
 const SearchForm = () => {
-  const [weatherRange, setWeatherRange] = useState("");
+  const [weatherRange, setWeatherRange] = useState("day");
   const [weatherArea, setWeatherArea] = useState("");
 
+  const navigate = useNavigate();
+
   const handleRangeChange = (e) => {
-    console.log(e.target.value);
     const selectedRange = e.target.value;
-    setWeatherRange(selectedRange);
+    selectedRange === "오늘" ? setWeatherRange("day") : setWeatherRange("week");
   };
 
   const handleAreaChange = (e) => {
-    console.log(e.target.value);
     setWeatherArea(e.target.value);
+  };
+
+  const handleSubmitForm = (e) => {
+    e.preventDefault();
+    navigate(`/${weatherRange}/${weatherArea}`);
   };
 
   console.log(weatherArea, weatherRange);
@@ -30,7 +36,9 @@ const SearchForm = () => {
           value={weatherArea}
           onChange={handleAreaChange}
         />
-        <St.SearchBtn type="submit">날씨 검색</St.SearchBtn>
+        <St.SearchBtn type="submit" onClick={handleSubmitForm}>
+          날씨 검색
+        </St.SearchBtn>
       </St.SearchFormArea>
     </St.FormWrapper>
   );
