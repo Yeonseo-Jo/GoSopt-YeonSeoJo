@@ -1,7 +1,7 @@
 import React from "react";
 
-const Day = () => {
+const DetailDay = () => {
   return <div>일간 날씨 페이지</div>;
 };
 
-export default Day;
+export default DetailDay;

@@ -1,16 +1,16 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./src/pages/Home";
-import Day from "./src/pages/Day";
-import Week from "./src/pages/Week";
+import DetailDay from "./src/pages/DetailDay";
+import DetailWeek from "./src/pages/DetailWeek";
 
 const Router = () => {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/day" element={<Day />} />
-        <Route path="/week" element={<Week />} />
+        <Route path="/day" element={<DetailDay />} />
+        <Route path="/week" element={<DetailWeek />} />
       </Routes>
     </BrowserRouter>
   );
