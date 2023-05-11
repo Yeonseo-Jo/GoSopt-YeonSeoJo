@@ -1,5 +1,6 @@
 import React from "react";
 import { styled } from "styled-components";
+import { WEATER_TYPE } from "../assets/weatherType";
 
 const WeatherInfoCard = ({ data }) => {
   const {
@@ -9,11 +10,25 @@ const WeatherInfoCard = ({ data }) => {
     dt_txt,
   } = data;
 
+  const targetWeather = WEATER_TYPE.find(
+    (data) => data.description === description
+  );
+
+  const targetImgSrc = targetWeather
+    ? targetWeather.imgURL
+    : "https://www.alpha.co.kr/common/img/noimage/268.png";
+
   return (
     <St.WeatherCardContainer>
       <St.WeatherCardTitle>
         <h3>{dt_txt.slice(5, 10)}</h3>
       </St.WeatherCardTitle>
+      {description && (
+        <St.WeatherCardImg
+          src={new URL(targetImgSrc, import.meta.url).href}
+          alt={description}
+        />
+      )}
       <St.WeatherCardItems>
         <span>현재 온도</span>
         <p>{temp}</p>
@@ -57,6 +72,11 @@ const St = {
       font-size: 3rem;
       font-weight: ${({ theme }) => theme.fontWeights.bold};
     }
+  `,
+
+  WeatherCardImg: styled.img`
+    width: 15rem;
+    border-radius: 1rem;
   `,
 
   WeatherCardItems: styled.div`

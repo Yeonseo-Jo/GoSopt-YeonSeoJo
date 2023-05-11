@@ -15,7 +15,7 @@ const DetailWeekInfo = () => {
     import.meta.env.VITE_APP_WEATHER
   }&units=metric`;
   const { data, isLoading, error } = useGetAxios(WEEK_URL);
-  // console.log(data, isLoading, error);
+  console.log(data, isLoading, error);
 
   useEffect(() => {
     console.log("렌더링");
