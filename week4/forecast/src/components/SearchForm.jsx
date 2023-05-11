@@ -9,8 +9,7 @@ const SearchForm = () => {
   const navigate = useNavigate();
 
   const handleRangeChange = (e) => {
-    const selectedRange = e.target.value;
-    selectedRange === "오늘" ? setWeatherRange("day") : setWeatherRange("week");
+    setWeatherRange(e.target.value);
   };
 
   const handleAreaChange = (e) => {
@@ -22,14 +21,12 @@ const SearchForm = () => {
     navigate(`/${weatherRange}/${weatherArea}`);
   };
 
-  console.log(weatherArea, weatherRange);
-
   return (
     <St.FormWrapper>
       <St.SearchFormArea>
-        <St.SearchSelectBox onChange={handleRangeChange}>
-          <option value="오늘">오늘</option>
-          <option value="주간">주간</option>
+        <St.SearchSelectBox name="weatherRange" onChange={handleRangeChange}>
+          <option value="day">오늘</option>
+          <option value="week">주간</option>
         </St.SearchSelectBox>
         <St.SearchInput
           placeholder="영어로 도시명 ex)seoul"
