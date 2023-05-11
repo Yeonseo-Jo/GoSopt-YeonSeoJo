@@ -39,7 +39,14 @@ const DetailWeekInfo = () => {
     <St.WeekInfoWrapper>
       {weekData &&
         weekData.map((data, idx) => {
-          return <WeatherInfoCard key={idx} data={data} />;
+          return (
+            <WeatherInfoCard
+              key={idx}
+              isDay={false}
+              isWeek={true}
+              data={data}
+            />
+          );
         })}
     </St.WeekInfoWrapper>
   );

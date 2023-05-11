@@ -2,12 +2,14 @@ import React from "react";
 import { styled } from "styled-components";
 import { WEATER_TYPE } from "../assets/weatherType";
 
-const WeatherInfoCard = ({ data }) => {
+const WeatherInfoCard = ({ data, isDay, isWeek }) => {
+  console.log(data);
   const {
+    dt_txt,
+    name,
     weather: [{ description }],
     main: { temp, feels_like, temp_min, temp_max },
     clouds: { all },
-    dt_txt,
   } = data;
 
   const targetWeather = WEATER_TYPE.find(
@@ -18,10 +20,11 @@ const WeatherInfoCard = ({ data }) => {
     ? targetWeather.imgURL
     : "https://www.alpha.co.kr/common/img/noimage/268.png";
 
+  // return <div>하이</div>;
   return (
     <St.WeatherCardContainer>
       <St.WeatherCardTitle>
-        <h3>{dt_txt.slice(5, 10)}</h3>
+        <h3>{isDay ? name : dt_txt.slice(5, 10)}</h3>
       </St.WeatherCardTitle>
       {description && (
         <St.WeatherCardImg
