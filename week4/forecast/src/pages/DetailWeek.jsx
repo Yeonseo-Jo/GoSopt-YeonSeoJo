@@ -1,17 +1,17 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import PageLayout from "../components/PageLayout";
-import { Outlet } from "react-router-dom";
-import useGetAxios from "../hooks/useGetAxios";
+import { Outlet, useParams } from "react-router-dom";
 
 const DetailWeek = () => {
-  let url = `https://api.openweathermap.org/data/2.5/forecast?q=Seoul&appid=${
-    import.meta.env.VITE_APP_WEATHER
-  }&units=metric`;
-  const { data, isLoading, error } = useGetAxios(url);
-  console.log(data, isLoading, error);
-  if (data) {
-    console.log(data.city.name);
-  }
+  // if (data) {
+  //   const tempData = data.list.filter((target) =>
+  //     target.dt_txt.includes("12:00:00")
+  //   );
+  //   // console.log(tempData);
+  //   const testData = tempData.map((data) => data.dt_txt);
+  //   // setWeekData(testData);
+  //   console.log(testData);
+  // }
 
   return (
     <PageLayout>
