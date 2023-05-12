@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import useGetAxios from "../hooks/useGetAxios";
 import WeatherInfoCard from "./WeatherInfoCard";
 import { styled } from "styled-components";
+import ErrorPage from "../pages/ErrorPage";
 
 const DetailWeekInfo = () => {
   const params = useParams();
@@ -15,7 +16,6 @@ const DetailWeekInfo = () => {
     import.meta.env.VITE_APP_WEATHER
   }&units=metric`;
   const { data, isLoading, error } = useGetAxios(WEEK_URL);
-  console.log(data, isLoading, error);
 
   useEffect(() => {
     console.log("렌더링");
@@ -34,6 +34,8 @@ const DetailWeekInfo = () => {
       setWeekData(filterdData);
     }
   };
+
+  if (error) return <ErrorPage error={error} />;
 
   return (
     <St.WeekInfoWrapper>
