@@ -1,12 +1,12 @@
 import React from "react";
 import { styled } from "styled-components";
 
-const ErrorPage = (error) => {
+const ErrorPage = () => {
   // 에러 페이지
   return (
     <St.ErrorWrapper>
       <St.ErrorTitle> 지역을 찾을 수 없어요🥹 다시 입력해 주세요 </St.ErrorTitle>
-      <St.ErrorContent>상세 내용 : {error.error} </St.ErrorContent>
+      <St.ErrorContent> Not Found </St.ErrorContent>
     </St.ErrorWrapper>
   );
 };
