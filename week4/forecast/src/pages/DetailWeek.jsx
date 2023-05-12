@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import PageLayout from "../components/PageLayout";
 import { Outlet, useParams } from "react-router-dom";
 import { styled } from "styled-components";
+import Skeleton from "../components/Skeleton";
 
 const DetailWeek = () => {
   const { weatherArea } = useParams();

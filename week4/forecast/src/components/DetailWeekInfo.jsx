@@ -5,6 +5,7 @@ import useGetAxios from "../hooks/useGetAxios";
 import WeatherInfoCard from "./WeatherInfoCard";
 import { styled } from "styled-components";
 import ErrorPage from "../pages/ErrorPage";
+import Skeleton from "./Skeleton";
 
 const DetailWeekInfo = () => {
   const params = useParams();
@@ -35,11 +36,14 @@ const DetailWeekInfo = () => {
     }
   };
 
+  let weekArray = [1, 2, 3, 4, 5];
   if (isLoading)
     return (
-      <>
-        <div>로딩중..</div>
-      </>
+      <St.SkelCardWrapper>
+        {weekArray.map((idx) => {
+          return <Skeleton key={idx} />;
+        })}
+      </St.SkelCardWrapper>
     );
 
   if (error) return <ErrorPage error={error} />;
@@ -64,6 +68,15 @@ const DetailWeekInfo = () => {
 export default DetailWeekInfo;
 
 const St = {
+  SkelCardWrapper: styled.section`
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap: 2rem;
+  `,
   WeekInfoWrapper: styled.section`
     display: flex;
     justify-content: center;

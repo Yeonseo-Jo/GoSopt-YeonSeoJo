@@ -58,7 +58,7 @@ const St = {
 
   SearchSelectBox: styled.select`
     padding: 0.3rem;
-    border: 0.3rem solid ${({ theme }) => theme.colors.grey};
+    border: 0.3rem solid ${({ theme }) => theme.colors.lightPink};
     border-radius: 1rem;
     font-size: 1.8rem;
     font-weight: ${({ theme }) => theme.fontWeights.light};

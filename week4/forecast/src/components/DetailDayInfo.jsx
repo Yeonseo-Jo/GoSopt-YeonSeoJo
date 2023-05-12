@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import useGetAxios from "../hooks/useGetAxios";
 import WeatherInfoCard from "./WeatherInfoCard";
 import ErrorPage from "../pages/ErrorPage";
+import Skeleton from "./Skeleton";
 
 const DetailDayInfo = () => {
   const params = useParams();
@@ -25,6 +26,8 @@ const DetailDayInfo = () => {
   }, [weatherArea]);
 
   console.log(data);
+
+  if (isLoading) return <Skeleton />;
 
   if (error) return <ErrorPage error={error} />;
 

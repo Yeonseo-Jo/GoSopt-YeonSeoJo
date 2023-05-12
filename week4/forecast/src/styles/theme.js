@@ -6,7 +6,8 @@ const colors = {
   darkestBlue: "rgb(114, 134, 211)",
   mint: " rgb(145, 216, 228)",
   skyblue: "rgb(234, 253, 252);",
-  grey: "rgb(229, 224, 255)",
+  lightPink: "rgb(229, 224, 255)",
+  grey: "rgb(208, 208, 208)",
 };
 
 const fontWeights = {
