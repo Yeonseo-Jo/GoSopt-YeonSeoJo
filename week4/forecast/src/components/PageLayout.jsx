@@ -7,6 +7,7 @@ const PageLayout = (props) => {
   const { children } = props;
 
   return (
+    // 헤더와 검색 폼을 담은 공통 페이지 레이아웃
     <St.PageWrapper>
       <Header />
       <SearchForm />

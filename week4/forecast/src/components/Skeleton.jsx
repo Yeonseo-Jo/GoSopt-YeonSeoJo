@@ -3,6 +3,7 @@ import { styled } from "styled-components";
 
 const Skeleton = () => {
   return (
+    // 날씨 검색 중 로딩 시 보여질 skeleton ui
     <St.skelCardContainer>
       <St.skelCardTitle></St.skelCardTitle>
       <St.skelCardImg></St.skelCardImg>

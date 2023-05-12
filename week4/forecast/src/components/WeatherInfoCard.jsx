@@ -2,8 +2,11 @@ import React from "react";
 import { styled } from "styled-components";
 import { WEATER_TYPE } from "../assets/weatherType";
 
-const WeatherInfoCard = ({ data, isDay, isWeek }) => {
+const WeatherInfoCard = ({ data, isDay }) => {
   console.log(data);
+
+  // 각 날씨 데이터를 받아와서 구조분해 할당
+  // 받아와서 필터링 한 일간 데이터와 주간 데이터의 데이터 구조가 달라 일간 데이터에는 dx_txt 값이 없고, 주간 데이터에는 name 값이 없다.
   const {
     dt_txt,
     name,
@@ -12,16 +15,19 @@ const WeatherInfoCard = ({ data, isDay, isWeek }) => {
     clouds: { all },
   } = data;
 
+  // 가져온 데이터에서 날씨 설명에 따라 WEATHER_TYPE 상수 파일에서 일치하는 항목을 가져온다.
   const targetWeather = WEATER_TYPE.find(
     (data) => data.description === description
   );
 
+  // 일치하는 항목에서 이미지를 가져온다. 매칭되는 이미지가 없을 시 default 이미지로 보여준다.
   const targetImgSrc = targetWeather
     ? targetWeather.imgURL
     : "https://www.alpha.co.kr/common/img/noimage/268.png";
 
-  // return <div>하이</div>;
   return (
+    // 일간 데이터에서는 타이틀이 지역 이름(name), 주간 데이터에서는 날짜(dx_txt)값이 된다.
+    // 날짜 값은 월-일만 parsing
     <St.WeatherCardContainer>
       <St.WeatherCardTitle>
         <h3>{isDay ? name : dt_txt.slice(5, 10)}</h3>

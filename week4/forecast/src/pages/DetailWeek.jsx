@@ -5,6 +5,7 @@ import { styled } from "styled-components";
 import Skeleton from "../components/Skeleton";
 
 const DetailWeek = () => {
+  // 주간 날씨 페이지
   const { weatherArea } = useParams();
 
   return (

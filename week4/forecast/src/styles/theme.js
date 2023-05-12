@@ -10,6 +10,7 @@ const colors = {
   grey: "rgb(208, 208, 208)",
 };
 
+// 폰트 두께 theme
 const fontWeights = {
   light: "400",
   normal: "500",

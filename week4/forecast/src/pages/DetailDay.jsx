@@ -4,6 +4,7 @@ import PageLayout from "../components/PageLayout";
 import { styled } from "styled-components";
 
 const DetailDay = () => {
+  // 일간 날씨 페이지
   const { weatherArea } = useParams();
 
   return (
