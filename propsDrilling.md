@@ -78,7 +78,7 @@
 
     → 위 예제 코드와 같이 children을 활용하면 콘텐츠의 전달을 하위요소까지 보낼수있다.
 
-  - _💡 children 활용에 대해 더 알고 싶다면 이 [아티클](<[https://fe-developers.kakaoent.com/2021/211022-react-children-tip/](https://fe-developers.kakaoent.com/2021/211022-react-children-tip/)>) 읽어보는걸 추천합니당_
+  - 💡 children 활용에 대해 더 알고 싶다면 이 [블로그](https://www.daleseo.com/react-children/) 읽어보는걸 추천합니당
 
 <br/>
 <hr>
