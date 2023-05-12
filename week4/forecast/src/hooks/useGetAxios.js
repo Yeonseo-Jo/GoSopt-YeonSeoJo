@@ -17,6 +17,9 @@ const useGetAxios = (url) => {
   };
 
   useEffect(() => {
+    setData(null);
+    setIsLoading(true);
+    setError("");
     fetchData();
   }, [url]);
 

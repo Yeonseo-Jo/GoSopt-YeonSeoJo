@@ -35,6 +35,13 @@ const DetailWeekInfo = () => {
     }
   };
 
+  if (isLoading)
+    return (
+      <>
+        <div>로딩중..</div>
+      </>
+    );
+
   if (error) return <ErrorPage error={error} />;
 
   return (
