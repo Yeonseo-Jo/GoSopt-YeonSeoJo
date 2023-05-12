@@ -2,10 +2,11 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
 import useGetAxios from "../hooks/useGetAxios";
-import WeatherInfoCard from "./WeatherInfoCard";
+
 import { styled } from "styled-components";
 import ErrorPage from "../pages/ErrorPage";
-import Skeleton from "./Skeleton";
+import Skeleton from "./weatherCard/Skeleton";
+import WeatherInfoCard from "./weatherCard/WeatherInfoCard";
 
 const DetailWeekInfo = () => {
   const { weatherArea } = useParams();

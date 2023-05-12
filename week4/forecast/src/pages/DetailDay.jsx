@@ -1,6 +1,6 @@
 import React from "react";
 import { Outlet, useParams } from "react-router-dom";
-import PageLayout from "../components/PageLayout";
+import PageLayout from "../components/common/PageLayout";
 import { styled } from "styled-components";
 
 const DetailDay = () => {

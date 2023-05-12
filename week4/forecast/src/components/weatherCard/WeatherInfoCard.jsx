@@ -1,6 +1,6 @@
 import React from "react";
 import { styled } from "styled-components";
-import { WEATER_TYPE } from "../assets/weatherType";
+import { WEATER_TYPE } from "../../assets/weatherType";
 
 const WeatherInfoCard = ({ data, isDay }) => {
   console.log(data);

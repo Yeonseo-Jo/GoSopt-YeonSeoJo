@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
-import PageLayout from "../components/PageLayout";
+import PageLayout from "../components/common/PageLayout";
 import { Outlet, useParams } from "react-router-dom";
 import { styled } from "styled-components";
-import Skeleton from "../components/Skeleton";
 
 const DetailWeek = () => {
   // 주간 날씨 페이지
