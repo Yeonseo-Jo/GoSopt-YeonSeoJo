@@ -23,13 +23,13 @@ const St = {
   `,
 
   ErrorTitle: styled.h2`
-    color: ${({ theme }) => theme.colors.darkerBlue};
+    color: ${({ theme }) => theme.colors.darkestBlue};
     font-size: 3rem;
     font-weight: ${({ theme }) => theme.fontWeights.bold};
   `,
 
   ErrorContent: styled.p`
-    color: ${({ theme }) => theme.colors.darkerBlue};
+    color: ${({ theme }) => theme.colors.darkestBlue};
     font-size: 2rem;
     font-weight: ${({ theme }) => theme.fontWeights.bold};
   `,
