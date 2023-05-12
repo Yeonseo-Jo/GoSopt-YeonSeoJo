@@ -4,6 +4,7 @@ import useGetAxios from "../hooks/useGetAxios";
 import WeatherInfoCard from "./weatherCard/WeatherInfoCard";
 import ErrorPage from "../pages/ErrorPage";
 import Skeleton from "./weatherCard/Skeleton";
+import { styled } from "styled-components";
 
 const DetailDayInfo = () => {
   const { weatherArea } = useParams();
@@ -23,10 +24,22 @@ const DetailDayInfo = () => {
     // 에러가 있으면 에러 페이지로 이동
     if (isError) return <ErrorPage />;
     // 로딩 중이 아니고 에러가 없으며, 데이터를 받아왔으면 해당 데이터를 담은 날씨 카드 보여주기
-    return <>{data && <WeatherInfoCard isDay={true} data={data} />}</>;
+    return (
+      <St.DayInfoWrapper>
+        {data && <WeatherInfoCard isDay={true} data={data} />}
+      </St.DayInfoWrapper>
+    );
   }
   // state가 없으면 -> 아직 데이터를 받아오고 있다는 뜻이므로 skeleton ui 보여준다
   return <Skeleton />;
 };
 
 export default DetailDayInfo;
+
+const St = {
+  DayInfoWrapper: styled.section`
+    display: flex;
+    justify-content: center;
+    padding: 3rem;
+  `,
+};
