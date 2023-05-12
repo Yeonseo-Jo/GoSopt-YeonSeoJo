@@ -1,42 +1,47 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { styled } from "styled-components";
 import { useNavigate } from "react-router-dom";
 
 const SearchForm = () => {
   // day or week 검색 범위를 저장하는 state
-  const [weatherRange, setWeatherRange] = useState("day");
-  // 검색할 지역을 저장하는 state
-  const [weatherArea, setWeatherArea] = useState("");
+  // const [weatherRange, setWeatherRange] = useState();
+  const selectRef = useRef();
+  // // 검색할 지역을 저장하는 state
+  // const [weatherArea, setWeatherArea] = useState("");
+  const inputRef = useRef();
 
   const navigate = useNavigate();
 
   // select 박스 option 선택 시 검색 범위 변경
-  const handleRangeChange = (e) => {
-    setWeatherRange(e.target.value);
-  };
+  // const handleRangeChange = (e) => {
+  //   // setWeatherRange(e.target.value);
+  // };
 
   // input으로 지역 검색 시 지역 변경
-  const handleAreaChange = (e) => {
-    setWeatherArea(e.target.value);
-  };
+  // const handleAreaChange = (e) => {
+  //   setWeatherArea(e.target.value);
+  // };
 
   // 검색 버튼 클릭시 해당되는 페이지로 이동
   const handleSubmitForm = (e) => {
     e.preventDefault();
-    navigate(`/${weatherRange}/${weatherArea}`);
+    const weatherArea = inputRef.current.value;
+    const weatherRange = selectRef.current.value;
+    if (weatherRange && weatherArea)
+      navigate(`/${weatherRange}/${weatherArea}`);
   };
 
   return (
     <St.FormWrapper>
       <St.SearchFormArea>
-        <St.SearchSelectBox name="weatherRange" onChange={handleRangeChange}>
+        <St.SearchSelectBox name="weatherRange" ref={selectRef}>
           <option value="day">오늘</option>
           <option value="week">주간</option>
         </St.SearchSelectBox>
         <St.SearchInput
           placeholder="영어로 도시명 ex)seoul"
-          value={weatherArea}
-          onChange={handleAreaChange}
+          ref={inputRef}
+          vlaue={inputRef}
         />
         <St.SearchBtn type="submit" onClick={handleSubmitForm}>
           날씨 검색
