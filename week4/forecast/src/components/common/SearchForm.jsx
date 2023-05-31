@@ -1,6 +1,6 @@
-import React, { useRef, useState } from "react";
-import { styled } from "styled-components";
+import React, { useRef } from "react";
 import { useNavigate } from "react-router-dom";
+import { styled } from "styled-components";
 
 const SearchForm = () => {
   // selectbox value 값을 가져오는 ref
@@ -22,19 +22,13 @@ const SearchForm = () => {
 
   return (
     <St.FormWrapper>
-      <St.SearchFormArea>
+      <St.SearchFormArea onClick={handleSubmitForm}>
         <St.SearchSelectBox name="weatherRange" ref={selectRef}>
           <option value="day">오늘</option>
           <option value="week">주간</option>
         </St.SearchSelectBox>
-        <St.SearchInput
-          placeholder="영어로 도시명 ex)seoul"
-          ref={inputRef}
-          vlaue={inputRef}
-        />
-        <St.SearchBtn type="submit" onClick={handleSubmitForm}>
-          날씨 검색
-        </St.SearchBtn>
+        <St.SearchInput placeholder="영어로 도시명 ex)seoul" ref={inputRef} />
+        <St.SearchBtn type="submit">날씨 검색</St.SearchBtn>
       </St.SearchFormArea>
     </St.FormWrapper>
   );

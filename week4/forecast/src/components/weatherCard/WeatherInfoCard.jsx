@@ -3,8 +3,6 @@ import { styled } from "styled-components";
 import { WEATER_TYPE } from "../../assets/weatherType";
 
 const WeatherInfoCard = ({ data, isDay }) => {
-  console.log(data);
-
   // 각 날씨 데이터를 받아와서 구조분해 할당
   // 받아와서 필터링 한 일간 데이터와 주간 데이터의 데이터 구조가 달라 일간 데이터에는 dx_txt 값이 없고, 주간 데이터에는 name 값이 없다.
   const {
