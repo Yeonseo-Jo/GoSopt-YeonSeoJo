@@ -1,25 +1,21 @@
 import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from "./src/pages/Home";
-import DetailDay from "./src/pages/DetailDay";
-import DetailWeek from "./src/pages/DetailWeek";
-import DetailDayInfo from "./src/components/DetailDayInfo";
-import DetailWeekInfo from "./src/components/DetailWeekInfo";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import DetailWeather from "./src/pages/DetailWeather";
 import ErrorPage from "./src/pages/ErrorPage";
+import Home from "./src/pages/Home";
 
 const Router = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/day" element={<DetailDay />}>
-          <Route path=":weatherArea" element={<DetailDayInfo />} />
+        <Route path="/" element={<Home />}>
+          <Route
+            path="/:weatherRange/:weatherArea"
+            element={<DetailWeather />}
+          />
           <Route path="*" element={<ErrorPage />} />
         </Route>
-        <Route path="/week" element={<DetailWeek />}>
-          <Route path=":weatherArea" element={<DetailWeekInfo />} />
-          <Route path="*" element={<ErrorPage />} />
-        </Route>
+        <Route path="*" element={<ErrorPage />} />
       </Routes>
     </BrowserRouter>
   );
