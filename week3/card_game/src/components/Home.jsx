@@ -1,18 +1,18 @@
-import styled from "styled-components";
 import { useEffect, useState } from "react";
+import styled from "styled-components";
 
 // 필요한 컴포넌트 호출
+import CardSection from "./Card/CardSection";
 import Header from "./Header";
 import LevelNav from "./LevelNav";
-import CardSection from "./Card/CardSection";
 import ResetBtn from "./ResetBtn";
 import SuccessModal from "./SuccessModal";
 
 // 랜덤 처리한 카드 이미지 데이터 호출
 import {
   EasyRandomList,
-  NormalRandomList,
   HardRandomList,
+  NormalRandomList,
 } from "../utils/shuffleData";
 
 export const Home = () => {
@@ -25,21 +25,25 @@ export const Home = () => {
   // 게임이 끝나 성공 축하 모달이 열렸는지 여부를 저장하는 state
   const [isModalOpen, setIsModalOpen] = useState(false);
 
+  const EASY_SCORE = 5;
+  const NORMAL_SCORE = 7;
+  const HARD_SCORE = 9;
+
   // 선택된 레벨에 따라 카드 리스트(개수 다르게)를 shuffleData에서 불러오고, totalScore도 다르게 지정
   let currCardList;
   let totalScore;
   switch (currLevel) {
     case "EASY":
       currCardList = EasyRandomList;
-      totalScore = 5;
+      totalScore = EASY_SCORE;
       break;
     case "NORMAL":
       currCardList = NormalRandomList;
-      totalScore = 7;
+      totalScore = NORMAL_SCORE;
       break;
     case "HARD":
       currCardList = HardRandomList;
-      totalScore = 9;
+      totalScore = HARD_SCORE;
       break;
   }
 
