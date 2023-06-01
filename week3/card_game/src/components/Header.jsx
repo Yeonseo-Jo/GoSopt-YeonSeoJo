@@ -8,9 +8,9 @@ export const Header = ({ currScore, totalScore }) => {
   // 0점이 아닐 때 점수가 올라가면 isCorrect 클래스를 붙여줘 css로 네온 애니메이션 지정
   useEffect(() => {
     if (currScore !== 0) {
-      scoreRef.current.classList.add("isCorrect");
+      scoreRef.current.classList.toggle("isCorrect");
       setTimeout(() => {
-        scoreRef.current.classList.remove("isCorrect");
+        scoreRef.current.classList.toggle("isCorrect");
       }, 700);
     }
   }, [currScore]);
