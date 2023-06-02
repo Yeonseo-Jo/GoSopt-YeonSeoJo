@@ -1,14 +1,18 @@
+import { RecoilRoot } from "recoil";
 import { ThemeProvider } from "styled-components";
-import theme from "./styles/theme";
-import { GlobalStyle } from "./styles/GlobalStyle";
+
 import Home from "./components/Home";
+import { GlobalStyle } from "./styles/GlobalStyle";
+import theme from "./styles/theme";
 
 function App() {
   return (
-    <ThemeProvider theme={theme}>
-      <GlobalStyle />
-      <Home />
-    </ThemeProvider>
+    <RecoilRoot>
+      <ThemeProvider theme={theme}>
+        <GlobalStyle />
+        <Home />
+      </ThemeProvider>
+    </RecoilRoot>
   );
 }
 
