@@ -61,8 +61,6 @@ export const Home = () => {
     }
   };
 
-  console.log(currCardList);
-
   useEffect(() => {
     shuffleCardList();
   }, [currLevel, isReset]);
