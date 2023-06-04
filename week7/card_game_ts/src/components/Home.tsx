@@ -35,9 +35,9 @@ export const Home = () => {
 
   // 선택 된 레벨을 저장하는 state, default 값은 EASY 레벨로 지정
   // const [currLevel, setCurrLevel] = useState("EASY");
-  const { currLevel } = useRecoilValue(gameStateAtom);
+  const { currLevel, currScore } = useRecoilValue(gameStateAtom);
   // 현재 점수를 저장하는 state
-  const [currScore, setCurrScore] = useState(0);
+  // const [currScore, setCurrScore] = useState(0);
   // 리셋 버튼을 눌렀는지 여부를 저장하는 state
   const [isReset, setIsReset] = useState(false);
   // 게임이 끝나 성공 축하 모달이 열렸는지 여부를 저장하는 state
@@ -85,10 +85,8 @@ export const Home = () => {
       <StMainContainer>
         <LevelNav />
         <CardSection
-          currLevel={currLevel}
           currCardList={currCardList}
           currScore={currScore}
-          setCurrScore={setCurrScore}
           isReset={isReset}
           setIsReset={setIsReset}
         />

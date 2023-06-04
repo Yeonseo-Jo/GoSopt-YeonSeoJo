@@ -1,19 +1,18 @@
-import styled from "styled-components";
 import { useEffect, useState } from "react";
+import { useRecoilState } from "recoil";
+import styled from "styled-components";
 
+import { gameStateAtom } from "../../recoil/atom";
 import Card from "./Card";
 
-export const CardSection = ({
-  currLevel,
-  currCardList,
-  setCurrScore,
-  isReset,
-  setIsReset,
-}) => {
+export const CardSection = ({ currCardList, isReset, setIsReset }) => {
   // 클릭 된 카드의 idx를 저장하는 state
   const [clickedList, setClickedList] = useState([]);
   // 클릭 된 카드의 카드 정보를 저장하는 state
   const [matchedList, setmatchedList] = useState([]);
+
+  const [gameState, setGameState] = useRecoilState(gameStateAtom);
+  const { currLevel } = gameState;
 
   // 카드 클릭 시 로직 처리를 위한 useEffect
   useEffect(() => {
@@ -22,7 +21,10 @@ export const CardSection = ({
       if (matchedList[0] === matchedList[1]) {
         //카드 데이터의 matchedStatus를 true로 바꿔주고, score를 올려준다.
         matchedList[0].matchedStatus = true;
-        setCurrScore((prev) => prev + 1);
+        setGameState((prev) => ({
+          ...prev,
+          currScore: prev.currScore + 1,
+        }));
       }
       // 일치하지 않으면 0.7초 뒤에 뒤집기
       setTimeout(() => {
@@ -36,7 +38,10 @@ export const CardSection = ({
   useEffect(() => {
     setmatchedList([]);
     setClickedList([]);
-    setCurrScore(0);
+    setGameState((prev) => ({
+      ...prev,
+      currScore: 0,
+    }));
     currCardList.forEach((card) => {
       card.matchedStatus = false;
     });
