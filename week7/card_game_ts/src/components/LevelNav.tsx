@@ -1,22 +1,23 @@
-import { useRecoilValue, useSetRecoilState } from "recoil";
+import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
 import styled from "styled-components";
 
 import { gameStateAtom } from "../recoil/atom";
 
 export const LevelNav = () => {
+  // 현재 level 값을 recoil의 gameStateAtom에서 가져와 관리
+  const [gameState, setGameState] = useRecoilState(gameStateAtom);
+  const { currLevel } = gameState;
   // 선택할 수 있는 레벨 리스트
-  const { currLevel } = useRecoilValue(gameStateAtom);
-  const setGameState = useSetRecoilState(gameStateAtom);
   const levelList = ["EASY", "NORMAL", "HARD"];
 
-  // console.log(currLevel);
-
+  // 선택된 레벨로 currLevel 값을 바꿔주는 함수
   const handleClickLevel = (level: string) => {
     setGameState((prev) => ({
       ...prev,
       currLevel: level,
     }));
   };
+
   return (
     <>
       <StLevelBtnContainer>

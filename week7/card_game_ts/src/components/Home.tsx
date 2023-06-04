@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useRecoilValue } from "recoil";
 import styled from "styled-components";
 
-import { gameState, gameStateAtom } from "../recoil/atom";
+import { gameStateAtom } from "../recoil/atom";
 // 랜덤 처리한 카드 이미지 데이터 호출
 import { randomCardList, shuffle } from "../utils/shuffleData";
 // 필요한 컴포넌트 호출
