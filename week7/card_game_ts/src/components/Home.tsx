@@ -1,15 +1,16 @@
 import { useEffect, useState } from "react";
+import { useRecoilValue } from "recoil";
 import styled from "styled-components";
 
+import { gameState, gameStateAtom } from "../recoil/atom";
+// 랜덤 처리한 카드 이미지 데이터 호출
+import { randomCardList, shuffle } from "../utils/shuffleData";
 // 필요한 컴포넌트 호출
 import CardSection from "./Card/CardSection";
 import Header from "./Header";
 import LevelNav from "./LevelNav";
 import ResetBtn from "./ResetBtn";
 import SuccessModal from "./SuccessModal";
-
-// 랜덤 처리한 카드 이미지 데이터 호출
-import { randomCardList, shuffle } from "../utils/shuffleData";
 
 export const Home = () => {
   // 레벨에 따른 카드 리스트 상수 정의 (util 파일이 아닌 여기서 호출해야 useEffect 처리 가능)
@@ -33,7 +34,8 @@ export const Home = () => {
   const HARD_SCORE = 9;
 
   // 선택 된 레벨을 저장하는 state, default 값은 EASY 레벨로 지정
-  const [currLevel, setCurrLevel] = useState("EASY");
+  // const [currLevel, setCurrLevel] = useState("EASY");
+  const { currLevel } = useRecoilValue(gameStateAtom);
   // 현재 점수를 저장하는 state
   const [currScore, setCurrScore] = useState(0);
   // 리셋 버튼을 눌렀는지 여부를 저장하는 state
@@ -81,7 +83,7 @@ export const Home = () => {
     <>
       <Header currScore={currScore} totalScore={totalScore} />
       <StMainContainer>
-        <LevelNav currLevel={currLevel} setCurrLevel={setCurrLevel}></LevelNav>
+        <LevelNav />
         <CardSection
           currLevel={currLevel}
           currCardList={currCardList}

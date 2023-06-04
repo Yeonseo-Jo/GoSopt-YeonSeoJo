@@ -1,9 +1,22 @@
+import { useRecoilValue, useSetRecoilState } from "recoil";
 import styled from "styled-components";
 
-export const LevelNav = ({ currLevel, setCurrLevel }) => {
+import { gameStateAtom } from "../recoil/atom";
+
+export const LevelNav = () => {
   // 선택할 수 있는 레벨 리스트
+  const { currLevel } = useRecoilValue(gameStateAtom);
+  const setGameState = useSetRecoilState(gameStateAtom);
   const levelList = ["EASY", "NORMAL", "HARD"];
 
+  // console.log(currLevel);
+
+  const handleClickLevel = (level: string) => {
+    setGameState((prev) => ({
+      ...prev,
+      currLevel: level,
+    }));
+  };
   return (
     <>
       <StLevelBtnContainer>
@@ -13,9 +26,7 @@ export const LevelNav = ({ currLevel, setCurrLevel }) => {
               key={level}
               id={level}
               type="button"
-              onClick={() => {
-                setCurrLevel(level);
-              }}
+              onClick={() => handleClickLevel(level)}
               selected={level === currLevel ? true : false}
             >
               {level}

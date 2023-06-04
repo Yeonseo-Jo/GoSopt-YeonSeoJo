@@ -1,6 +1,8 @@
 import { atom } from "recoil";
 
-export const gameState = atom({
-  key: "gameState",
-  default: "",
+export const gameStateAtom = atom({
+  key: "gameStateAtom",
+  default: {
+    currLevel: "EASY",
+  },
 });
