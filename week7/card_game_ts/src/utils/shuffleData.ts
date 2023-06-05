@@ -8,18 +8,3 @@ export const shuffle = (array: Array<CardObject>) => {
 };
 
 export const randomCardList = shuffle([...ANKO_DATA]);
-
-// export const EasyRandomList = shuffle([
-//   ...randomCardList.slice(0, 5),
-//   ...randomCardList.slice(0, 5),
-// ]);
-
-// export const NormalRandomList = shuffle([
-//   ...randomCardList.slice(0, 7),
-//   ...randomCardList.slice(0, 7),
-// ]);
-
-// export const HardRandomList = shuffle([
-//   ...randomCardList.slice(0, 9),
-//   ...randomCardList.slice(0, 9),
-// ]);
