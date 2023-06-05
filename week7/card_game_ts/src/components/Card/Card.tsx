@@ -1,10 +1,20 @@
 import { useState } from "react";
 import styled from "styled-components";
 
-export const Card = ({ idx, card, handleCardChoice, isFlipped }) => {
+import { CardObject } from "../../types/card";
+
+interface CardProps {
+  idx: number;
+  card: CardObject;
+  handleCardChoice: ((card: CardObject, idx: number) => void) | null;
+  isFlipped: boolean;
+}
+
+export const Card = ({ idx, card, handleCardChoice, isFlipped }: CardProps) => {
   //카드 중복 클릭 시 같은 쌍이 뒤집히는 에러 핸들링 용 state 추가
   const [isClicked, setIsClicked] = useState(false);
-
+  const { imgSrc, alt } = card;
+  2;
   const handleCardClick = () => {
     // 2개 이상 선택하지 않았고 중복 클릭이 아니면 클릭 이벤트에서 cardSection에서 정의한 handleCardChoice 함수 실행
     if (handleCardChoice !== null && isClicked === false) {
@@ -19,11 +29,11 @@ export const Card = ({ idx, card, handleCardChoice, isFlipped }) => {
 
   return (
     <StCardFace>
-      <StCardFront id={idx} onClick={handleCardClick}>
+      <StCardFront isFlipped={isFlipped} onClick={handleCardClick}>
         💖
       </StCardFront>
-      <StCardBack id={idx} isFlipped={isFlipped}>
-        <img src={card.imgSrc} alt={card.alt} />
+      <StCardBack isFlipped={isFlipped}>
+        <img src={imgSrc} alt={alt} />
       </StCardBack>
     </StCardFace>
   );
@@ -36,7 +46,7 @@ const StCardFace = styled.div`
   width: 100%;
   height: 100%;
 `;
-const StCard = styled.div`
+const StCard = styled.div<{ isFlipped: boolean }>`
   display: flex;
   justify-content: center;
   align-items: center;

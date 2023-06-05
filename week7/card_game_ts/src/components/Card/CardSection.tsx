@@ -3,13 +3,18 @@ import { useRecoilState } from "recoil";
 import styled from "styled-components";
 
 import { gameStateAtom, resetStatusAtom } from "../../recoil/atom";
+import { CardObject } from "../../types/card";
 import Card from "./Card";
 
-export const CardSection = ({ currCardList }) => {
+interface CardSectionProps {
+  currCardList: Array<CardObject>;
+}
+
+export const CardSection = ({ currCardList }: CardSectionProps) => {
   // 클릭 된 카드의 idx를 저장하는 state
-  const [clickedList, setClickedList] = useState([]);
+  const [clickedList, setClickedList] = useState<Array<number>>([]);
   // 클릭 된 카드의 카드 정보를 저장하는 state
-  const [matchedList, setmatchedList] = useState([]);
+  const [matchedList, setmatchedList] = useState<Array<CardObject>>([]);
 
   const [gameState, setGameState] = useRecoilState(gameStateAtom);
   const { currLevel } = gameState;
@@ -22,6 +27,7 @@ export const CardSection = ({ currCardList }) => {
     if (matchedList.length === 2) {
       if (matchedList[0] === matchedList[1]) {
         //카드 데이터의 matchedStatus를 true로 바꿔주고, score를 올려준다.
+        console.log(matchedList);
         matchedList[0].matchedStatus = true;
         setGameState((prev) => ({
           ...prev,
@@ -44,28 +50,24 @@ export const CardSection = ({ currCardList }) => {
       ...prev,
       currScore: 0,
     }));
-    currCardList.forEach((card) => {
+    currCardList.forEach((card: CardObject) => {
       card.matchedStatus = false;
     });
     setIsReset(false);
   }, [currLevel, isReset]);
 
   // 카드 선택 시 관련 state를 바꿔주기 위한 함수, card 컴포넌트의 click 이벤트로 처리할 수 있게 넘겨준다
-  const handleCardChoice = (card, idx) => {
+  const handleCardChoice = (card: CardObject, idx: number) => {
     setmatchedList([...matchedList, card]);
     setClickedList([...clickedList, idx]);
   };
 
   return (
     <StCardsContainer>
-      {currCardList.map((card, idx) => {
+      {currCardList.map((card: CardObject, idx: number) => {
         return (
           <>
-            <StCardWrapper
-              key={`${card.id}-${idx}`}
-              id={idx}
-              className={card.id}
-            >
+            <StCardWrapper key={`${card.id}-${idx}`}>
               <Card
                 card={card}
                 idx={idx}

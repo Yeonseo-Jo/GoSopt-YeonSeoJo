@@ -1,8 +1,8 @@
 import { atom } from "recoil";
 
-import { gameState } from "../../types/game";
+import { GameState } from "../types/game";
 
-export const gameStateAtom = atom<gameState>({
+export const gameStateAtom = atom<GameState>({
   key: "gameStateAtom",
   default: {
     currLevel: "EASY",
