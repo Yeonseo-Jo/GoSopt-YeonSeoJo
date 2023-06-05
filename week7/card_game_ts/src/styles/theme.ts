@@ -1,3 +1,5 @@
+import { DefaultTheme } from "styled-components";
+
 const colors = {
   white: "#FFFFFF",
   black: "#000000",
@@ -9,7 +11,7 @@ const colors = {
   lightYellow: "rgb(255, 249, 182)",
 };
 
-const theme = {
+const theme: DefaultTheme = {
   colors,
 };
 
