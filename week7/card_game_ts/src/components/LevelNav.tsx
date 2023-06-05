@@ -47,7 +47,7 @@ const StLevelBtnContainer = styled.nav`
   padding: 1.5rem;
 `;
 
-const StLevelBtn = styled.button`
+const StLevelBtn = styled.button<{ selected: boolean }>`
   padding: 1.5rem 1.8rem;
   margin-right: 2rem;
   background-color: ${({ selected, theme }) =>
