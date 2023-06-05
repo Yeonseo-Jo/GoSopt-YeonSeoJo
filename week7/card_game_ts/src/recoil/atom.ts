@@ -8,3 +8,8 @@ export const gameStateAtom = atom({
     totalScore: 5,
   },
 });
+
+export const resetStatusAtom = atom({
+  key: "resetStatusAtom",
+  default: false,
+});

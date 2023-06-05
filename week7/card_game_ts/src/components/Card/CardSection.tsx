@@ -2,10 +2,10 @@ import { useEffect, useState } from "react";
 import { useRecoilState } from "recoil";
 import styled from "styled-components";
 
-import { gameStateAtom } from "../../recoil/atom";
+import { gameStateAtom, resetStatusAtom } from "../../recoil/atom";
 import Card from "./Card";
 
-export const CardSection = ({ currCardList, isReset, setIsReset }) => {
+export const CardSection = ({ currCardList }) => {
   // 클릭 된 카드의 idx를 저장하는 state
   const [clickedList, setClickedList] = useState([]);
   // 클릭 된 카드의 카드 정보를 저장하는 state
@@ -13,6 +13,8 @@ export const CardSection = ({ currCardList, isReset, setIsReset }) => {
 
   const [gameState, setGameState] = useRecoilState(gameStateAtom);
   const { currLevel } = gameState;
+
+  const [isReset, setIsReset] = useRecoilState(resetStatusAtom);
 
   // 카드 클릭 시 로직 처리를 위한 useEffect
   useEffect(() => {

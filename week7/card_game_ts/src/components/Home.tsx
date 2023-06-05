@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import { useRecoilState } from "recoil";
+import { useRecoilState, useRecoilValue } from "recoil";
 import styled from "styled-components";
 
-import { gameStateAtom } from "../recoil/atom";
+import { gameStateAtom, resetStatusAtom } from "../recoil/atom";
 // 랜덤 처리한 카드 이미지 데이터 호출
 import { randomCardList, shuffle } from "../utils/shuffleData";
 // 필요한 컴포넌트 호출
@@ -37,10 +37,12 @@ export const Home = () => {
   // const [currLevel, setCurrLevel] = useState("EASY");
   const [gameState, setGameState] = useRecoilState(gameStateAtom);
   const { currLevel, currScore, totalScore } = gameState;
+
+  const isReset = useRecoilValue(resetStatusAtom);
   // 현재 점수를 저장하는 state
   // const [currScore, setCurrScore] = useState(0);
   // 리셋 버튼을 눌렀는지 여부를 저장하는 state
-  const [isReset, setIsReset] = useState(false);
+  // const [isReset, setIsReset] = useState(false);
   // 게임이 끝나 성공 축하 모달이 열렸는지 여부를 저장하는 state
   const [isModalOpen, setIsModalOpen] = useState(false);
   // 선택된 레벨에 따라 카드 리스트(개수 다르게)를 shuffleData에서 불러오고, totalScore도 다르게 지정
@@ -94,13 +96,9 @@ export const Home = () => {
       <Header />
       <StMainContainer>
         <LevelNav />
-        <CardSection
-          currCardList={currCardList}
-          isReset={isReset}
-          setIsReset={setIsReset}
-        />
+        <CardSection currCardList={currCardList} />
       </StMainContainer>
-      <ResetBtn setIsReset={setIsReset} />
+      <ResetBtn />
       {isModalOpen && <SuccessModal handleModalClose={handleModalClose} />}
     </>
   );

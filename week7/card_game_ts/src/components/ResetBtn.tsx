@@ -1,6 +1,10 @@
+import { useSetRecoilState } from "recoil";
 import styled from "styled-components";
 
-export const ResetBtn = ({ setIsReset }) => {
+import { resetStatusAtom } from "../recoil/atom";
+
+export const ResetBtn = () => {
+  const setIsReset = useSetRecoilState(resetStatusAtom);
   return (
     <>
       <StBtnWrapper>
