@@ -1,6 +1,8 @@
 import { atom } from "recoil";
 
-export const gameStateAtom = atom({
+import { gameState } from "../../types/game";
+
+export const gameStateAtom = atom<gameState>({
   key: "gameStateAtom",
   default: {
     currLevel: "EASY",
@@ -9,12 +11,12 @@ export const gameStateAtom = atom({
   },
 });
 
-export const resetStatusAtom = atom({
+export const resetStatusAtom = atom<boolean>({
   key: "resetStatusAtom",
   default: false,
 });
 
-export const modalStatusAtom = atom({
+export const modalStatusAtom = atom<boolean>({
   key: "modalStatusAtom",
   default: false,
 });
