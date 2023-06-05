@@ -13,3 +13,8 @@ export const resetStatusAtom = atom({
   key: "resetStatusAtom",
   default: false,
 });
+
+export const modalStatusAtom = atom({
+  key: "modalStatusAtom",
+  default: false,
+});

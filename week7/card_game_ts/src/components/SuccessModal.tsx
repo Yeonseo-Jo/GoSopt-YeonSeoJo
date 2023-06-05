@@ -1,7 +1,11 @@
-import styled from "styled-components";
 import reactDom from "react-dom";
+import { useSetRecoilState } from "recoil";
+import styled from "styled-components";
 
-export const SuccessModal = ({ handleModalClose }) => {
+import { modalStatusAtom } from "../recoil/atom";
+
+export const SuccessModal = () => {
+  const setIsModalOpen = useSetRecoilState(modalStatusAtom);
   // createPortal로 모달을 띄울 영역을 잡아주기 위한 변수
   const modalRoot = document.getElementById("modal-root");
 
@@ -10,7 +14,7 @@ export const SuccessModal = ({ handleModalClose }) => {
       <StModalWrapper>
         <p>🥳🥳🥳 축하합니다!! 🥳🥳🥳</p>
         <StModalBtnWrapper>
-          <button type="button" onClick={handleModalClose}>
+          <button type="button" onClick={() => setIsModalOpen(false)}>
             게임으로 돌아가기
           </button>
         </StModalBtnWrapper>
