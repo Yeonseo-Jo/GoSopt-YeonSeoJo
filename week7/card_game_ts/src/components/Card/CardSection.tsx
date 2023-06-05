@@ -64,7 +64,7 @@ export const CardSection = ({ currCardList }) => {
             <StCardWrapper
               key={`${card.id}-${idx}`}
               id={idx}
-              clasName={card.id}
+              className={card.id}
             >
               <Card
                 card={card}
