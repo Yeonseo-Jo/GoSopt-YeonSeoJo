@@ -5,5 +5,6 @@ export const gameStateAtom = atom({
   default: {
     currLevel: "EASY",
     currScore: 0,
+    totalScore: 5,
   },
 });

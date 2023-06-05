@@ -1,7 +1,11 @@
 import { useEffect, useRef } from "react";
+import { useRecoilValue } from "recoil";
 import styled, { keyframes } from "styled-components";
 
-export const Header = ({ currScore, totalScore }) => {
+import { gameStateAtom } from "../recoil/atom";
+
+export const Header = () => {
+  const { currScore, totalScore } = useRecoilValue(gameStateAtom);
   // 점수 올라갈 때 애니메이션 속성 지정을 위한 점수 부분 ref
   const scoreRef = useRef();
 

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useRecoilValue } from "recoil";
+import { useRecoilState } from "recoil";
 import styled from "styled-components";
 
 import { gameStateAtom } from "../recoil/atom";
@@ -35,7 +35,8 @@ export const Home = () => {
 
   // 선택 된 레벨을 저장하는 state, default 값은 EASY 레벨로 지정
   // const [currLevel, setCurrLevel] = useState("EASY");
-  const { currLevel, currScore } = useRecoilValue(gameStateAtom);
+  const [gameState, setGameState] = useRecoilState(gameStateAtom);
+  const { currLevel, currScore, totalScore } = gameState;
   // 현재 점수를 저장하는 state
   // const [currScore, setCurrScore] = useState(0);
   // 리셋 버튼을 눌렀는지 여부를 저장하는 state
@@ -44,21 +45,30 @@ export const Home = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   // 선택된 레벨에 따라 카드 리스트(개수 다르게)를 shuffleData에서 불러오고, totalScore도 다르게 지정
   const [currCardList, setCurrCardList] = useState(EASY_RANDOM_LIST);
-  const [totalScore, setTotalScore] = useState(EASY_SCORE);
+  // const [totalScore, setTotalScore] = useState(EASY_SCORE);
 
   const shuffleCardList = () => {
     switch (currLevel) {
       case "EASY":
         setCurrCardList(EASY_RANDOM_LIST);
-        setTotalScore(EASY_SCORE);
+        setGameState((prev) => ({
+          ...prev,
+          totalScore: EASY_SCORE,
+        }));
         break;
       case "NORMAL":
         setCurrCardList(NORMAL_RANDOM_LIST);
-        setTotalScore(NORMAL_SCORE);
+        setGameState((prev) => ({
+          ...prev,
+          totalScore: NORMAL_SCORE,
+        }));
         break;
       case "HARD":
         setCurrCardList(HARD_RANDOM_LIST);
-        setTotalScore(HARD_SCORE);
+        setGameState((prev) => ({
+          ...prev,
+          totalScore: HARD_SCORE,
+        }));
         break;
     }
   };
@@ -81,12 +91,11 @@ export const Home = () => {
 
   return (
     <>
-      <Header currScore={currScore} totalScore={totalScore} />
+      <Header />
       <StMainContainer>
         <LevelNav />
         <CardSection
           currCardList={currCardList}
-          currScore={currScore}
           isReset={isReset}
           setIsReset={setIsReset}
         />
