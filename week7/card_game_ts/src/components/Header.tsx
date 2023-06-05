@@ -7,14 +7,14 @@ import { gameStateAtom } from "../recoil/atom";
 export const Header = () => {
   const { currScore, totalScore } = useRecoilValue(gameStateAtom);
   // 점수 올라갈 때 애니메이션 속성 지정을 위한 점수 부분 ref
-  const scoreRef = useRef();
+  const scoreRef = useRef<HTMLHeadingElement>(null);
 
   // 0점이 아닐 때 점수가 올라가면 isCorrect 클래스를 붙여줘 css로 네온 애니메이션 지정
   useEffect(() => {
     if (currScore !== 0) {
-      scoreRef.current.classList.toggle("isCorrect");
+      scoreRef.current?.classList.toggle("isCorrect");
       setTimeout(() => {
-        scoreRef.current.classList.toggle("isCorrect");
+        scoreRef.current?.classList.toggle("isCorrect");
       }, 700);
     }
   }, [currScore]);
