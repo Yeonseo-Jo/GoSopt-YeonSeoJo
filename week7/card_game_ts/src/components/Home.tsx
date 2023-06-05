@@ -37,23 +37,18 @@ export const Home = () => {
   const NORMAL_SCORE = 7;
   const HARD_SCORE = 9;
 
-  // 선택 된 레벨을 저장하는 state, default 값은 EASY 레벨로 지정
-  // const [currLevel, setCurrLevel] = useState("EASY");
+  // game에 필요한 정보들(현재 레벨, 점수, 레벨에 따른 총 점수)를 recoil의 gameStateAtom에서 관리 해주고, 필요한 값을 불러옴
   const [gameState, setGameState] = useRecoilState(gameStateAtom);
   const { currLevel, currScore, totalScore } = gameState;
-
+  // reset 되었는지를 판단하는 플래그를 recoil의 resetStatusAtom에서 관리
   const isReset = useRecoilValue(resetStatusAtom);
+  // modal이 open 될지를 판단하는 플래그를 recoil의 modalStatusAtom에서 관리
   const [isModalOpen, setIsModalOpen] = useRecoilState(modalStatusAtom);
-  // 현재 점수를 저장하는 state
-  // const [currScore, setCurrScore] = useState(0);
-  // 리셋 버튼을 눌렀는지 여부를 저장하는 state
-  // const [isReset, setIsReset] = useState(false);
-  // 게임이 끝나 성공 축하 모달이 열렸는지 여부를 저장하는 state
-  // const [isModalOpen, setIsModalOpen] = useState(false);
-  // 선택된 레벨에 따라 카드 리스트(개수 다르게)를 shuffleData에서 불러오고, totalScore도 다르게 지정
-  const [currCardList, setCurrCardList] = useState(EASY_RANDOM_LIST);
-  // const [totalScore, setTotalScore] = useState(EASY_SCORE);
 
+  // 선택된 레벨에 따라 카드 리스트(개수 다르게)를 shuffleData에서 불러옴.
+  const [currCardList, setCurrCardList] = useState(EASY_RANDOM_LIST);
+
+  // 레벨에 따른 셔플된 카드리스트와 총 점수를 불러오는 함수
   const shuffleCardList = () => {
     switch (currLevel) {
       case "EASY":
@@ -90,11 +85,6 @@ export const Home = () => {
       setIsModalOpen(true);
     }
   }, [currScore, totalScore]);
-
-  // 모달에서 돌아가기 버튼 클릭시 모달을 닫아주기 위한 함수, successModal 컴포넌트로 전달한다
-  // const handleModalClose = () => {
-  //   setIsModalOpen(false);
-  // };
 
   return (
     <>
