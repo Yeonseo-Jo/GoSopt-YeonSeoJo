@@ -27,7 +27,6 @@ export const CardSection = ({ currCardList }: CardSectionProps) => {
     if (matchedList.length === 2) {
       if (matchedList[0] === matchedList[1]) {
         //카드 데이터의 matchedStatus를 true로 바꿔주고, score를 올려준다.
-        console.log(matchedList);
         matchedList[0].matchedStatus = true;
         setGameState((prev) => ({
           ...prev,
