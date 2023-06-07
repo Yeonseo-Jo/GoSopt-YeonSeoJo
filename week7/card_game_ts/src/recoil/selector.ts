@@ -3,10 +3,18 @@ import { selector } from "recoil";
 import { GameState } from "../types/game";
 import { gameStateAtom } from "./atom";
 
-export const currLevelSelector = selector<GameState | string>({
+export const currLevelSelector = selector({
   key: "currLevelSelector",
   get: ({ get }) => get(gameStateAtom).currLevel,
   set: ({ set, get }, newValue) => {
     set(gameStateAtom, { ...get(gameStateAtom), currLevel: newValue });
+  },
+});
+
+export const currScoreSelector = selector({
+  key: "currScoreSelector",
+  get: ({ get }) => get(gameStateAtom).currScore,
+  set: ({ set, get }, newValue) => {
+    set(gameStateAtom, { ...get(gameStateAtom), currScore: newValue });
   },
 });

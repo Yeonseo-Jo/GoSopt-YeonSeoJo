@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import { useRecoilState, useRecoilValue } from "recoil";
+import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
 import styled from "styled-components";
 
 import { gameStateAtom, resetStatusAtom } from "../../recoil/atom";
-import { currLevelSelector } from "../../recoil/selector";
+import { currLevelSelector, currScoreSelector } from "../../recoil/selector";
 import { CardObject } from "../../types/card";
 import Card from "./Card";
 
@@ -17,9 +17,10 @@ export const CardSection = ({ currCardList }: CardSectionProps) => {
   // 클릭 된 카드의 카드 정보를 저장하는 state
   const [matchedList, setmatchedList] = useState<Array<CardObject>>([]);
 
-  const [gameState, setGameState] = useRecoilState(gameStateAtom);
+  // const [gameState, setGameState] = useRecoilState(gameStateAtom);
   // const { currLevel } = gameState;
   const currLevel = useRecoilValue(currLevelSelector);
+  const setCurrScore = useSetRecoilState(currScoreSelector);
 
   const [isReset, setIsReset] = useRecoilState(resetStatusAtom);
 
@@ -30,10 +31,11 @@ export const CardSection = ({ currCardList }: CardSectionProps) => {
       if (matchedList[0] === matchedList[1]) {
         //카드 데이터의 matchedStatus를 true로 바꿔주고, score를 올려준다.
         matchedList[0].matchedStatus = true;
-        setGameState((prev) => ({
-          ...prev,
-          currScore: prev.currScore + 1,
-        }));
+        // setGameState((prev) => ({
+        //   ...prev,
+        //   currScore: prev.currScore + 1,
+        // }));
+        setCurrScore((prev) => prev + 1);
       }
       // 일치하지 않으면 0.7초 뒤에 뒤집기
       setTimeout(() => {
@@ -47,10 +49,11 @@ export const CardSection = ({ currCardList }: CardSectionProps) => {
   useEffect(() => {
     setmatchedList([]);
     setClickedList([]);
-    setGameState((prev) => ({
-      ...prev,
-      currScore: 0,
-    }));
+    // setGameState((prev) => ({
+    //   ...prev,
+    //   currScore: 0,
+    // }));
+    setCurrScore(0);
     currCardList.forEach((card: CardObject) => {
       card.matchedStatus = false;
     });
