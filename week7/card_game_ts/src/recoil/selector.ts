@@ -18,3 +18,11 @@ export const currScoreSelector = selector({
     set(gameStateAtom, { ...get(gameStateAtom), currScore: newValue });
   },
 });
+
+export const totalScoreSelector = selector({
+  key: "totalScoreSelector",
+  get: ({ get }) => get(gameStateAtom).totalScore,
+  set: ({ set, get }, newValue) => {
+    set(gameStateAtom, { ...get(gameStateAtom), totalScore: newValue });
+  },
+});

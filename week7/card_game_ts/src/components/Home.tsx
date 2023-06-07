@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useRecoilState, useRecoilValue } from "recoil";
+import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
 import styled from "styled-components";
 
 import {
@@ -7,6 +7,7 @@ import {
   modalStatusAtom,
   resetStatusAtom,
 } from "../recoil/atom";
+import { totalScoreSelector } from "../recoil/selector";
 // 랜덤 처리한 카드 이미지 데이터 호출
 import { randomCardList, shuffle } from "../utils/shuffleData";
 // 필요한 컴포넌트 호출
@@ -38,8 +39,9 @@ export const Home = () => {
   const HARD_SCORE = 9;
 
   // game에 필요한 정보들(현재 레벨, 점수, 레벨에 따른 총 점수)를 recoil의 gameStateAtom에서 관리 해주고, 필요한 값을 불러옴
-  const [gameState, setGameState] = useRecoilState(gameStateAtom);
-  const { currLevel, currScore, totalScore } = gameState;
+  // const [gameState, setGameState] = useRecoilState(gameStateAtom);
+  const { currLevel, currScore, totalScore } = useRecoilValue(gameStateAtom);
+  const setTotalScore = useSetRecoilState(totalScoreSelector);
   // reset 되었는지를 판단하는 플래그를 recoil의 resetStatusAtom에서 관리
   const isReset = useRecoilValue(resetStatusAtom);
   // modal이 open 될지를 판단하는 플래그를 recoil의 modalStatusAtom에서 관리
@@ -53,24 +55,27 @@ export const Home = () => {
     switch (currLevel) {
       case "EASY":
         setCurrCardList(EASY_RANDOM_LIST);
-        setGameState((prev) => ({
-          ...prev,
-          totalScore: EASY_SCORE,
-        }));
+        // setGameState((prev) => ({
+        //   ...prev,
+        //   totalScore: EASY_SCORE,
+        // }));
+        setTotalScore(EASY_SCORE);
         break;
       case "NORMAL":
         setCurrCardList(NORMAL_RANDOM_LIST);
-        setGameState((prev) => ({
-          ...prev,
-          totalScore: NORMAL_SCORE,
-        }));
+        // setGameState((prev) => ({
+        //   ...prev,
+        //   totalScore: NORMAL_SCORE,
+        // }));
+        setTotalScore(NORMAL_SCORE);
         break;
       case "HARD":
         setCurrCardList(HARD_RANDOM_LIST);
-        setGameState((prev) => ({
-          ...prev,
-          totalScore: HARD_SCORE,
-        }));
+        // setGameState((prev) => ({
+        //   ...prev,
+        //   totalScore: HARD_SCORE,
+        // }));
+        setTotalScore(HARD_SCORE);
         break;
     }
   };
