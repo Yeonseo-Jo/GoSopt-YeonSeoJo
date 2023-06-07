@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
-import { useRecoilState } from "recoil";
+import { useRecoilState, useRecoilValue } from "recoil";
 import styled from "styled-components";
 
 import { gameStateAtom, resetStatusAtom } from "../../recoil/atom";
+import { currLevelSelector } from "../../recoil/selector";
 import { CardObject } from "../../types/card";
 import Card from "./Card";
 
@@ -17,7 +18,8 @@ export const CardSection = ({ currCardList }: CardSectionProps) => {
   const [matchedList, setmatchedList] = useState<Array<CardObject>>([]);
 
   const [gameState, setGameState] = useRecoilState(gameStateAtom);
-  const { currLevel } = gameState;
+  // const { currLevel } = gameState;
+  const currLevel = useRecoilValue(currLevelSelector);
 
   const [isReset, setIsReset] = useRecoilState(resetStatusAtom);
 
