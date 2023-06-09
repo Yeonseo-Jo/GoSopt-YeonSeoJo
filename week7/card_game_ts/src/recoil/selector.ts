@@ -3,7 +3,7 @@ import { selector } from "recoil";
 import { GameState } from "../types/game";
 import { gameStateAtom } from "./atom";
 
-export const currLevelSelector = selector({
+export const currLevelSelector = selector<GameState>({
   key: "currLevelSelector",
   get: ({ get }) => get(gameStateAtom).currLevel,
   set: ({ set, get }, newValue) => {

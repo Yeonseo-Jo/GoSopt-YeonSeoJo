@@ -7,7 +7,11 @@ import {
   modalStatusAtom,
   resetStatusAtom,
 } from "../recoil/atom";
-import { totalScoreSelector } from "../recoil/selector";
+import {
+  currLevelSelector,
+  currScoreSelector,
+  totalScoreSelector,
+} from "../recoil/selector";
 // 랜덤 처리한 카드 이미지 데이터 호출
 import { randomCardList, shuffle } from "../utils/shuffleData";
 // 필요한 컴포넌트 호출
@@ -40,7 +44,11 @@ export const Home = () => {
 
   // game에 필요한 정보들(현재 레벨, 점수, 레벨에 따른 총 점수)를 recoil의 gameStateAtom에서 관리 해주고, 필요한 값을 불러옴
   // const [gameState, setGameState] = useRecoilState(gameStateAtom);
-  const { currLevel, currScore, totalScore } = useRecoilValue(gameStateAtom);
+  // const { currLevel, currScore, totalScore } = useRecoilValue(gameStateAtom);
+  const currLevel = useRecoilValue(currLevelSelector);
+  const currScore = useRecoilValue(currScoreSelector);
+  const totalScore = useRecoilValue(totalScoreSelector);
+
   const setTotalScore = useSetRecoilState(totalScoreSelector);
   // reset 되었는지를 판단하는 플래그를 recoil의 resetStatusAtom에서 관리
   const isReset = useRecoilValue(resetStatusAtom);
