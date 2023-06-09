@@ -5,6 +5,7 @@ import { resetStatusAtom } from "../recoil/atom";
 
 export const ResetBtn = () => {
   const setIsReset = useSetRecoilState(resetStatusAtom);
+
   return (
     <>
       <StBtnWrapper>

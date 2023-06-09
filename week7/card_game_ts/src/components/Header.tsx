@@ -2,12 +2,12 @@ import { useEffect, useRef } from "react";
 import { useRecoilValue } from "recoil";
 import styled, { keyframes } from "styled-components";
 
-import { gameStateAtom } from "../recoil/atom";
 import { currScoreSelector, totalScoreSelector } from "../recoil/selector";
 
 export const Header = () => {
-  // const { currScore, totalScore } = useRecoilValue(gameStateAtom);
+  // 현재 점수를 저장하는 selector
   const currScore = useRecoilValue(currScoreSelector);
+  // 전체 점수를 저장하는 selector
   const totalScore = useRecoilValue(totalScoreSelector);
   // 점수 올라갈 때 애니메이션 속성 지정을 위한 점수 부분 ref
   const scoreRef = useRef<HTMLHeadingElement>(null);

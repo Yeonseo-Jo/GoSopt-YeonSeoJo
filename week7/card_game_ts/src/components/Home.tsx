@@ -2,11 +2,7 @@ import { useEffect, useState } from "react";
 import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
 import styled from "styled-components";
 
-import {
-  gameStateAtom,
-  modalStatusAtom,
-  resetStatusAtom,
-} from "../recoil/atom";
+import { modalStatusAtom, resetStatusAtom } from "../recoil/atom";
 import {
   currLevelSelector,
   currScoreSelector,
@@ -42,14 +38,14 @@ export const Home = () => {
   const NORMAL_SCORE = 7;
   const HARD_SCORE = 9;
 
-  // game에 필요한 정보들(현재 레벨, 점수, 레벨에 따른 총 점수)를 recoil의 gameStateAtom에서 관리 해주고, 필요한 값을 불러옴
-  // const [gameState, setGameState] = useRecoilState(gameStateAtom);
-  // const { currLevel, currScore, totalScore } = useRecoilValue(gameStateAtom);
+  // game에 필요한 정보들(현재 레벨, 점수, 레벨에 따른 총 점수)를 recoil의 gameStateAtom에 정의해놓고, 필요한 값을 각각의 selector를 통해 불러와 사용
+  // 현재 레벨을 저장하는 selector
   const currLevel = useRecoilValue(currLevelSelector);
+  // 현재 점수를 저장하는 selector
   const currScore = useRecoilValue(currScoreSelector);
-  const totalScore = useRecoilValue(totalScoreSelector);
+  // 선택된 레벨에 따른 전체 점수를 저장하고, 새로운 값으로 설정해주는 selector
+  const [totalScore, setTotalScore] = useRecoilState(totalScoreSelector);
 
-  const setTotalScore = useSetRecoilState(totalScoreSelector);
   // reset 되었는지를 판단하는 플래그를 recoil의 resetStatusAtom에서 관리
   const isReset = useRecoilValue(resetStatusAtom);
   // modal이 open 될지를 판단하는 플래그를 recoil의 modalStatusAtom에서 관리
@@ -63,26 +59,14 @@ export const Home = () => {
     switch (currLevel) {
       case "EASY":
         setCurrCardList(EASY_RANDOM_LIST);
-        // setGameState((prev) => ({
-        //   ...prev,
-        //   totalScore: EASY_SCORE,
-        // }));
         setTotalScore(EASY_SCORE);
         break;
       case "NORMAL":
         setCurrCardList(NORMAL_RANDOM_LIST);
-        // setGameState((prev) => ({
-        //   ...prev,
-        //   totalScore: NORMAL_SCORE,
-        // }));
         setTotalScore(NORMAL_SCORE);
         break;
       case "HARD":
         setCurrCardList(HARD_RANDOM_LIST);
-        // setGameState((prev) => ({
-        //   ...prev,
-        //   totalScore: HARD_SCORE,
-        // }));
         setTotalScore(HARD_SCORE);
         break;
     }
