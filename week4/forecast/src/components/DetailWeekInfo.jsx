@@ -65,7 +65,6 @@ export default DetailWeekInfo;
 const St = {
   SkelCardWrapper: styled.section`
     display: flex;
-    flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;

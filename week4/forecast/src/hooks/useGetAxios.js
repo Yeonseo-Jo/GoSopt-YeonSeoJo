@@ -22,7 +22,6 @@ const useGetAxios = (url) => {
     isLoding: false,
     isError: null,
   });
-  console.log(url);
 
   const fetchData = async () => {
     dispatch({ type: "loading" });
