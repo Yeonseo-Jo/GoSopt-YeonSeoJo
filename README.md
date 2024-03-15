@@ -1,8 +1,22 @@
-![웹파트-조연서](https://user-images.githubusercontent.com/79238676/227775750-b96cb5e8-e61a-41f0-9de1-50a1e26a7256.png)
-해삐 웹팟에 오신 것을 환영합니다🌼
+### ✅ Toy Project List
+| 📚 구현 내용 | ✨ 사용 언어 및 기술 | 📌 PR 링크                                                                                                                            | 🔗 배포 링크 |
+| --------- | ----- | ---------------------------------------------------------------------------------------------------------------------------------- | --------- |
+| MyShop (1) | HTML/CSS  | [My Shop - Yeonsinsa 👗👖👚 (1)](https://github.com/GO-SOPT-WEB/YeonSeoJo/pull/1) ||
+| ToDoList (1) | HTML/CSS  | [ ToDoList (1) ](https://github.com/GO-SOPT-WEB/YeonSeoJo/pull/2)                           | |
+| MyShop (2) | Javascript  | [My Shop - Yeonsinsa 👗👖👚 (2)](https://github.com/GO-SOPT-WEB/YeonSeoJo/pull/5)                                               | |
+| ToDoList (2) | Javascript   | [ ToDoList (2) ](https://github.com/GO-SOPT-WEB/YeonSeoJo/pull/6)                                               | |
+| CardGame (1) | React(JS)| [ CardGame (1) - 🌼 앙꼬를 찾아라 💖 ](https://github.com/GO-SOPT-WEB/YeonSeoJo/pull/11)                                               | [ ( 🔗 Link) 앙꼬를 찾아라 JS ver.](https://find-anko-game.vercel.app/) |
+| Weather Forecast | React(JS) | [ ☀️ 연서의 날씨 예보 ☀️ ](https://github.com/GO-SOPT-WEB/YeonSeoJo/pull/13)                                               | [ ( 🔗 Link) 연서의 날씨 예보 ](https://yeonseo-forecast.vercel.app/) |
+| Card Game (2) | React(TS) | [ CardGame (2) - 🌼 앙꼬를 찾아라 💖 ](https://github.com/GO-SOPT-WEB/YeonSeoJo/pull/14)                                               | [ ( 🔗 Link) 앙꼬를 찾아라 TS ver.](https://find-anko-game-ts.vercel.app/) |
 
-| 🗓 주차 | 📚 과제명 | 🔗 링크                                                                                                                            |
-| ------ | --------- | ---------------------------------------------------------------------------------------------------------------------------------- |
-| week1  | assign3   | [[ 1주차 기본/심화 과제 ] : assign3 - 웨비들의 냠냠 🍰 창업🏠 (Yeonsinsa 👗👖👚)](https://github.com/GO-SOPT-WEB/YeonSeoJo/pull/1) |
-| week1  | assign4   | [[ 1주차 기본/심화 과제 ] assign4 - WEB 💛 TO DO MATE ](https://github.com/GO-SOPT-WEB/YeonSeoJo/pull/2)                           |
-| week1  | 생각과제  | [[1주차 생각 과제 ] : 웹 최적화 💭](https://github.com/GO-SOPT-WEB/YeonSeoJo/pull/3)                                               |
+
+<br/>
+<hr/>
+
+### ✅ Short Article List
+| 📚 구현 내용 | 📌 PR 링크                                                                                                                            | 
+| --------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| 웹 최적화  | [ 웹 최적화 💭](https://github.com/GO-SOPT-WEB/YeonSeoJo/pull/3)                                               | 
+| React 폴더 구조 | [ React의 폴더 구조 💭 ](https://github.com/GO-SOPT-WEB/YeonSeoJo/pull/7)                                               |
+| React 상태 관리와 렌더링 | [ React의 상태 관리와 렌더링 💭 ](https://github.com/GO-SOPT-WEB/YeonSeoJo/pull/8)                                               |
+| React와 Props Drilling | [ React와 Props Drilling 💭 ](https://github.com/GO-SOPT-WEB/YeonSeoJo/pull/12)                                               | 
